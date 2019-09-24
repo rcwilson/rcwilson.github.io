@@ -5,7 +5,17 @@
     ;
 }
 body {
-   background-color: rgba(14,51,58,1);
+   background-color:rgba(56,56,56,1);
+}
+
+h2 {
+    color:rgba(240,247,187,1);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1em;
+}
+
+h3 {
+    color: white;
 }
 
 html    {
@@ -13,12 +23,10 @@ html    {
     
 }
 
-img {
-    width: 80%;
-}
-
-menu {
-    text-align:  center;
+p {
+    color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: .25em;
 }
 
 .icon   {
@@ -27,15 +35,64 @@ menu {
 }
 
 .main-header__title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3em;
+    font-weight: bolder;
     text-align: center;
+    
     color:  rgba(255,255,255,1);
+}
+
+.main-menu__navigation-container {
+    
+    /* background-color: black; */
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: fixed;
+   
+}
+
+.navigation__ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navigation__li {
+    
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navigation__li:hover {
+    background-color: #111;
+    color: gold;
+}
+
+.main-body__content {
+    color: whitesmoke;
+    
+}
+
+.main-body__picture-of-me {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
-
 .wrapper {
-    margin: 0 auto;
-    max-width: 50rem;
+    margin: auto;
+    max-width: 70rem;
     width: 90%;
     background-color: rgba(2,2,24,1);
 }

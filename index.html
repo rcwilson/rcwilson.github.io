@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <menu>    
+     
         <link rel="stylesheet" type="text/css" href="./style/main.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    </menu>
+   
     <title>Richard's Portfolio</title>
 </head>
 
 <body>
     <div class="wrapper">
     <header class="main-header">
-        <h1 class="main-header__title">Richard Wilson</h1>
-        <nav class="navigation">
-            <a href="#about-me">About Me</a> <a href="#projects"> Projects </a>
-            <a href="https://github.com/rcwilson"><img src="./img/icons/gitHub.png" class="icon" alt="Git Hub" title="Git Hub"></a>
-            <a href="mailto:rcwilson88@gmail.com"><img src="./img/icons/email.png" class="icon" alt = "Email me!" title="Email Me"></a>
-            <a href="https://www.linkedin.com/in/richard-wilson-2052a9193/"><img src="./img/icons/linkedin.png" class="icon" alt="LinkedIn" title="LinkedIn"></a>
-            <a href="https://wecancodeitbootcamp.slack.com/team/UMMSPB9PD"><img src="./img/icons/slack.jpg" class="icon" alt="Slack Profile" title="Slack"></a>
-        </nav>
+        
+        <menu class="main-menu__navigation-container">
+           
+            <nav>
+                <ul class="navigation__ul">
+                <li class="navigation__li"><a href="#about-me">About Me</a></li> 
+                <li class="navigation__li"><a href="#projects"> Projects </a></li>
+                <li><a href="https://github.com/rcwilson"><img src="./img/icons/gitHub.png" class="icon" alt="Git Hub" title="Git Hub"></a></li>
+                <li><a href="mailto:rcwilson88@gmail.com"><img src="./img/icons/email.png" class="icon" alt = "Email me!" title="Email Me"></a></li>
+                <li><a href="https://www.linkedin.com/in/richard-wilson-2052a9193/"><img src="./img/icons/linkedin.png" class="icon" alt="LinkedIn" title="LinkedIn"></a></li>
+                <li><a href="https://wecancodeitbootcamp.slack.com/team/UMMSPB9PD"><img src="./img/icons/slack.jpg" class="icon" alt="Slack Profile" title="Slack"></a></li>
+                </ul> 
+            </nav>
+        </menu> 
     </header>
     <main>
+        <h1 class="main-header__title">Richard Wilson</h1>
         <section id="about-me"> 
-            <img src="./img/Me_01.png" alt="Picture of Myself">
+            <img class="main-body__picture-of-me" src="./img/Me_01.png" alt="Picture of Myself">
             <h2>About Me</h2>
             <h3>The Now</h3>
-                <p>I am currently enrolled at a 14-week programming bootcamp called We Can Code IT in Columbus, Ohio. Along with a moderate
+                <p class="main-body__content">I am currently enrolled at a 14-week programming bootcamp called We Can Code IT in Columbus, Ohio. Along with a moderate
                     sized cohort, I've been tackling "real-world" projects in an agile environment using paired and mob programming. Sprints range 1-3 weeks.
                 </p>
             <h3>Background</h3>
-                <p> Working service-industry jobs have been a large part of my adult life. As a bartender for the last 8 years, I have 
+                <p class="main-body__content"> Working service-industry jobs have been a large part of my adult life. As a bartender for the last 8 years, I have 
                     benefited from meeting many (many) kinds of interesting people. I hold extreme value to crafting the best product and entertaining guests in the most creative ways
                     that I can. 
                 </p>    
-                <p> It wasn't until I started taking on more responsibilities behind the scenes
+                <p class="main-body__content"> It wasn't until I started taking on more responsibilities behind the scenes
                     that I considered an exact path towards a career change. After I'd adopted the task of counting the bar inventory and managed
                     a database, my interest had peaked. I wanted to know more. 
-                </p>
-                <p> This lead to independent studies including coding-practice websites, lecure videos, reading sources, and plenty of subreddit crawling. Joining We Can Code IT has 
+                </p class="main-body__content">
+                <p class="main-body__content"> This lead to independent studies including coding-practice websites, lecure videos, reading sources, and plenty of subreddit crawling. Joining We Can Code IT has 
                     vastly honed my skills as a coder.
                 </p>
-                <p>
+                <p class="main-body__content">
                     I'm ready to craft new kinds of products.
                 </p>
         </section>
@@ -71,6 +78,9 @@
                 <p></p>
         </section>  
     </main>  
-        </div>       
+        </div>
+        <footer>
+            <p></p>
+        </footer>
             </body>
 </html>
