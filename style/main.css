@@ -46,6 +46,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
+    overflow: hidden;
 }
 .navigation__li {
     
@@ -75,7 +76,7 @@ h2 {
 .wrapper {
     margin: 0 auto;
     align-self: auto;
-   
+   background-color: white;
     max-width: 60rem;
 }
 
