@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display|Source+Sans+Pro|IBM+Plex+Mono|Open+Sans|Inconsolata|Righteous|Turret+Road|VT323&display=swap');
+
+html {
+    --window-bg: linear-gradient(rgba(0, 0, 0, 0.603),rgb(3, 3, 22, 0.603),rgb(3, 3, 22, 0.603),rgb(3, 3, 22, 0.603),rgb(12, 12, 85, 0.603),rgb(104, 104, 136, 0.603));
+    --window-border: white solid 2px;
+    --window-b-radius: 10px;
+}
+
+
+body {
+    background-color: rgb(41, 38, 59);
+    background-image: url(../img/textures/background.png);
+    color: white;
+    background-attachment: fixed;
+    overflow: hidden;
+    }
+
+/* ----------------NAVIGATION BAR------------------- */
+/* ------------------------------------------------- */
+.icon{
+    height: 50px;
+    width: 50px;
+}
+.logo{
+    font-size: 1.7rem;
+    color: rgb(255, 224, 83);
+    margin: auto;
+}
+.nav-container{
+    position: sticky;
+    width: 100%;
+    top: 0;
+}
+.nav-bar{
+    
+    background-image: var(--window-bg);
+    border: var(--window-border);
+    border-radius: var(--window-b-radius);
+    width: 500px;
+    height: auto;
+    margin: auto;
+}
+
+
+.nav-list{
+    
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    list-style: none;
+    padding: 0;
+    font-family: "Big Shoulders Display", Arial, Helvetica, sans-serif;
+}
+
+
+nav ul li {
+    
+    float: left;
+    position: relative;
+}
+nav ul li a,
+nav ul li a:visited{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    transition-duration: 0.4s;
+}
+nav ul li a:hover{
+    color: black;
+    background-color: white;
+    transition-duration: 0.4s;
+}
+.nav-dropdown{
+    display: none;
+    position: absolute;
+    z-index: 50;
+    list-style: none;
+    background-image: var(--window-bg);
+    border: var(--window-border);
+    border-radius: var(--window-b-radius);
+    text-align: center;
+    width: 7rem;
+    height: auto;
+    margin-left: -1rem;
+}
+.nav-dropdown a:hover{
+    color: black;
+    background-color: white;
+    transition-duration: 0.4s;
+}
+
+/* ========Main Windows=========== */
+.section-window{
+    
+    background-image: var(--window-bg);
+    border: var(--window-border);
+    border-radius: var(--window-b-radius);
+    width: 500px;
+    height: auto;
+    margin: auto;
+    padding: 1rem;
+}

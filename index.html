@@ -1,70 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" type="text/css" href="./style/main.css">
+    <script src="js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Richard's Portfolio</title>
 </head>
+
 <body>
-    <div class="navigation-container">
         <nav class="navigation-box">
 
-                <h1>Richard <br> Wilson</h1>
-                     
-                <a class="navigation__a" href="#about-me">About Me</a> 
-            
-                <a class="navigation__a"  href="#projects">Projects</a>
-            
-                <a class="navigation__a"  href="#skills">Skills</a> 
-           
-                <a class="navigation__a-last">Contact Me</a>
-              
-            
+            <div class="nav_title">Richard Wilson</div>
+
+            <a href="#about-me"><div class="nav_item">About Me</div></a>
+
+            <a href="#projects"><div class="nav_item">Projects</div></a>
+
+            <a  href="#skills"><div class="nav_item">Skills</div></a>
+            <div class="nav_dropdown" >
+                    <div class="nav_item" onclick="navDropdown()">Contact Me</div>
+                    <div id="contactMeDropdown" class="nav_dropdown-content">
+                        <a href=#><img src="./img/icons/email.png" class="icon" /> </a>
+                        <a href=#><img src="./img/icons/linkedin.png" class="icon" /> </a>
+                        <a href=#><img src="./img/icons/gitHub.png" class="icon" /> </a>
+                    </div>
+                </div>
+
+                
+                
+
         </nav>
-    </div>  
 
     <div class="wrapper">
         <main>
             <div class="header__door-container">
-            <img src="./img/Door.png" class="header-door">
+                <img src="./img/Door.png" class="header-door">
             </div>
             <section class="main__about-me" id="about-me">
                 <div class="main__section-header">
-                <h2>About Me</h2>
+                    <h2>About Me</h2>
                 </div>
                 <div class="main__about-me-grid__container">
-                <img src="./img/me-cropped.png" class="main__about-me-grid__img">
+                    <img src="./img/me-cropped.png" class="main__about-me-grid__img">
                     <div class="main__about-me-grid__current">
-                         <h3 class=>Present</h3>
-                         
-                        <p>I am currently enrolled at We Can Code IT, a 14-week intense software development training bootcamp in Columbus, Ohio. Along with a moderate sized cohort, I've been tackling "real-world" projects in an agile environment using paired and mob programming. Sprints range 1-3 weeks.</p>
+                        <h3 class=>Present</h3>
+
+                        <p>I am currently enrolled at We Can Code IT, a 14-week intense software development training
+                            bootcamp in Columbus, Ohio. Along with a moderate sized cohort, I've been tackling
+                            "real-world" projects in an agile environment using paired and mob programming. Sprints
+                            range 1-3 weeks.</p>
                     </div>
                     <div class="main__about-me-grid__heading">
                         <h3>Background</h3>
                     </div>
                     <div class="main__about-me-grid__summary">
-                        <p>Working service-industry jobs have been a large part of my adult life. As a bartender for the last 8 years, I have benefited from meeting many (many) kinds of interesting people. I hold extreme value to crafting the best product and entertaining guests in the most creative ways that I can.</p>
-                        
-                        <p>It wasn't until I started taking on more responsibilities behind the scenes that I considered an exact path towards a career change. After I'd adopted the task of counting the bar inventory and managed a database, my interest had peaked. I wanted to know more.</p>
-                        
-                        <p>This lead to independent studies including coding-practice websites, lecure videos, reading sources, and plenty of subreddit crawling. Joining We Can Code IT has vastly honed my skills as a coder.</p>
-                        
+                        <p>Working service-industry jobs have been a large part of my adult life. As a bartender for the
+                            last 8 years, I have benefited from meeting many (many) kinds of interesting people. I hold
+                            extreme value to crafting the best product and entertaining guests in the most creative ways
+                            that I can.</p>
+
+                        <p>It wasn't until I started taking on more responsibilities behind the scenes that I considered
+                            an exact path towards a career change. After I'd adopted the task of counting the bar
+                            inventory and managed a database, my interest had peaked. I wanted to know more.</p>
+
+                        <p>This lead to independent studies including coding-practice websites, lecure videos, reading
+                            sources, and plenty of subreddit crawling. Joining We Can Code IT has vastly honed my skills
+                            as a coder.</p>
+
                         <p>I'm ready to craft new kinds of products.</p>
                     </div>
-                </div>        
+                </div>
             </section>
-            
+
             <section class="main__projects" id="projects">
                 <div class="main__section-header">
-                <h2> Projects</h2>
+                    <h2> Projects</h2>
                 </div>
-                <article class= "main__projects-grid__container">
+                <article class="main__projects-grid__container">
                     <h3 class="main__projects-grid__header">Virtual Pet Shelter</h3>
                     <p class="main__projects-grid__summary">
-                        Tasked with creating a virtual pet shelter game. The game begins by generating random projects in
-                        in the shelter for the user. User checks up and maintains pets' health, thirst, happiness, and more. The game
+                        Tasked with creating a virtual pet shelter game. The game begins by generating random projects
+                        in
+                        in the shelter for the user. User checks up and maintains pets' health, thirst, happiness, and
+                        more. The game
                         featuers a "tick" method to give the player a "real-time" experience.
                     </p>
                     <img src="img/project/project-1__img-1-generated-pets.PNG" class="main__projects-grid__img1">
@@ -73,41 +94,48 @@
                     <p class="main__projects-grid__desc1">Generated pets for user</p>
                     <p class="main__projects-grid__desc2">Pet interaction and upkeep</p>
                     <p class="main__projects-grid__desc3">Tools: GitHub, NodeJS, Jest, Gitbash</p>
-                </article> 
+                </article>
 
-                <article class="article__project-2"><p>High Street Hospital</p></article>
-                <article class="article__project-3"><p>Project 3</p></article>
+                <article class="article__project-2">
+                    <p>High Street Hospital</p>
+                </article>
+                <article class="article__project-3">
+                    <p>Project 3</p>
+                </article>
             </section>
             <section class="main__about-me">
-                    <div class="main__section-header" id="skills">
+                <div class="main__section-header" id="skills">
                     <h2>Skills</h2>
+                </div>
+                <div class="main__about-me-grid__container">
+                    <div class="main__about-me-grid__img">
+                        <h3>Tools Used</h3>
+
+                        <p>Grid Flexbox React TDD Agile Object-oriented-programming AJAX JSON SPAs GitHub
+                        </p>
                     </div>
-                    <div class="main__about-me-grid__container">
-                        <div class="main__about-me-grid__img">
-                                <h3>Tools Used</h3>
-                             
-                                <p>Grid Flexbox React TDD Agile Object-oriented-programming AJAX JSON SPAs GitHub
-                                </p>
-                        </div>
-                        <div class="main__about-me-grid__current">
-                             <h3>Coding Language Experience</h3>
-                             
-                            <p>Javascript / Nodejs / React
-                                    HTML 5 / CSS
-                                    SQL
-                            </p>
-                        </div>
-                        <div class="main__about-me-grid__heading">
-                            <h3>Summary</h3>
-                        </div>
-                        <div class="main__about-me-grid__summary">
-                                <p>Adjective Software Developer with fresh experience in an agile work environment. Shows enthusiasm, organization, and creativity in every project. Known for superior team-based work and communication skills.</p>
-                        </div>
-                    </div>        
-                </section>
+                    <div class="main__about-me-grid__current">
+                        <h3>Coding Language Experience</h3>
+
+                        <p>Javascript / Nodejs / React
+                            HTML 5 / CSS
+                            SQL
+                        </p>
+                    </div>
+                    <div class="main__about-me-grid__heading">
+                        <h3>Summary</h3>
+                    </div>
+                    <div class="main__about-me-grid__summary">
+                        <p>Adjective Software Developer with fresh experience in an agile work environment. Shows
+                            enthusiasm, organization, and creativity in every project. Known for superior team-based
+                            work and communication skills.</p>
+                    </div>
+                </div>
+            </section>
 
         </main>
     </div>
-    
+
 </body>
+
 </html>
