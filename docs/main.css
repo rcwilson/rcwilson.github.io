@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+html {
+    font: 20px/1 sans-serif;
+    --theme-color-orange: #ff914d;
+    --theme-color-blue: #007bb6;
+    --theme-color-light-blue: #38b6ff;
+}
+
+
+  body {
+      background-image: url("./img/textures/background-night1.png");
+    background-attachment: fixed;
+      background-size: auto;
+  }
+
+  .main-container {
+      margin: 0 auto;
+      width: 100%;
+  }
+
+  /* ======DEV STUFF====== */
+
+  .chunk {
+      height: 500px;
+      width: 100%;
+  }
+
+
+/* =======DOOR INTRO======= */
+
+.door-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 200px auto 400px auto;
+}
+
+.door {
+    cursor: pointer;
+    height: 500px;
+    width: 250px;
+    box-shadow: 0 0 2rem white;
+    transition-duration: .2s;
+}
+
+@keyframes door-hover {
+    0%      {box-shadow: -2px 0 2rem white;}
+    25%     {box-shadow: 4px -2px 6rem var(--theme-color-light-blue);}
+    50%     {box-shadow: 0 0 4rem var(--theme-color-orange);}
+    75%     {box-shadow: 0 0 4rem var(--theme-color-light-blue);}
+    100%    {box-shadow: 0 0 6rem var(--theme-color-orange);}
+}
+
+.door:hover {
+    transition-duration: 1s;
+    animation-name: door-hover;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: backwards;
+    z-index: 50;
+}
+
+
+/* ========TRANSITION======== */
+
+.transition-box {
+    width: 100%;
+    height: 800px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), black, black, rgba(0, 0, 0, 0));
+    
+}
+
+/* ========GENERIC SECTION========= */
+
+.section-container {
+
+}
