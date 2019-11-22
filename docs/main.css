@@ -1,32 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 * {
     padding: 0;
     margin: 0;
   }
 html {
-    font: 20px/1 sans-serif;
+    font: 20px/1 Lato, sans-serif;
+    color: whitesmoke;
     --theme-color-orange: #ff914d;
     --theme-color-blue: #007bb6;
     --theme-color-light-blue: #38b6ff;
 }
 
 
-  body {
-      background-image: url("./img/textures/background-night1.png");
+body {
+    background-image: url("./img/textures/background-night1.png"); 
     background-attachment: fixed;
-      background-size: auto;
-  }
+    background-size: auto;
+    /* overflow: hidden; */
+}
 
-  .main-container {
-      margin: 0 auto;
-      width: 100%;
-  }
+.background {
+    content: "";
+    background: black fixed;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;   
+    transition-duration: 1s;
+}
+.background.show {
+    opacity: .2;
+    /* background: rgba(0, 0, 0, 0) fixed; */
+    transition-duration: 1s;
+}
 
-  /* ======DEV STUFF====== */
+.main-container {
+    margin: 0 auto;
+    width: 100%;
+}
 
-  .chunk {
-      height: 500px;
-      width: 100%;
-  }
+/* ======DEV STUFF====== */
+
+/* buttons */
+.fade-in,.fade-out, .to-top {
+    position: sticky;
+    top: 0;
+}
+.chunk {
+    height: 500px;
+    width: 100%;
+}
 
 
 /* =======DOOR INTRO======= */
@@ -34,48 +60,113 @@ html {
 .door-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
-    margin: 200px auto 400px auto;
+    margin: 200px auto 35px auto;
 }
 
 .door {
     cursor: pointer;
     height: 500px;
     width: 250px;
-    box-shadow: 0 0 2rem white;
-    transition-duration: .2s;
+    /* box-shadow: 0 0 2rem white; */
+    animation-name: door-hover;
+    animation-fill-mode: backwards;
+    transition-duration: 1s;
 }
 
 @keyframes door-hover {
-    0%      {box-shadow: -2px 0 2rem white;}
-    25%     {box-shadow: 4px -2px 6rem var(--theme-color-light-blue);}
+    0%      {box-shadow: 0 0 0 rgba(0, 0, 0, 0)}
+    40%     {box-shadow: 4px -2px 6rem var(--theme-color-light-blue);}
     50%     {box-shadow: 0 0 4rem var(--theme-color-orange);}
     75%     {box-shadow: 0 0 4rem var(--theme-color-light-blue);}
     100%    {box-shadow: 0 0 6rem var(--theme-color-orange);}
 }
 
-.door:hover {
-    transition-duration: 1s;
-    animation-name: door-hover;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-fill-mode: backwards;
-    z-index: 50;
+
+.door-text-container {
+    width: 100%;
+    text-align: center;
+    margin: 6rem auto;
 }
+
+/* --------DOOR TEXT--------- */
+@keyframes doorText {
+    0%  {
+        opacity: 10%;
+        right: 1rem;
+        content: "W";
+    }
+    12%  {
+        opacity: 20%;
+        right: .8rem;
+        content: "WE";}
+    27% {
+        opacity: 50%;
+        right: .5rem;
+        content: "WEL";}
+    40% {
+        opacity: 60%;
+        right: .2rem;
+        content: "WELC";}
+    60% {
+        opacity: 80%;
+        right: auto;
+        content: "WELCO";}
+    80% {
+        opacity: 100%;
+        content: "WELCOM";}
+    100% {content: "WELCOME";}       
+}
+.door-text{
+    color: white;
+    font-size: 1.2rem;
+    float: bottom;
+    content: "";
+}
+     
+.door-text-animation::after{
+    transition-duration: .5s;
+    color: white;
+    font-family: Lato, sans-serif;
+    letter-spacing: .3rem;
+    animation: doorText 2s linear 1s alternate;
+    animation-fill-mode: forwards;
+    content: "";
+}   
+
 
 
 /* ========TRANSITION======== */
 
 .transition-box {
+   
     width: 100%;
-    height: 800px;
+    height: 4800px;
     background-image: linear-gradient(rgba(0, 0, 0, 0), black, black, rgba(0, 0, 0, 0));
     
+}
+
+/* ============NAV BAR=========== */
+
+.nav-bar {
+    position: sticky;
+    top: 1rem;
+    background-color: var(--theme-color-blue);
+    width: 500px;
+    height: 3rem;
+    margin: .5rem auto;
+    border: 2px white solid;
+    border-radius: 12px;
 }
 
 /* ========GENERIC SECTION========= */
 
 .section-container {
-
+    background-color: var(--theme-color-orange);
+    width: 500px;
+    height: 500px;
+    margin: .5rem auto;
+    border: 2px white solid;
+    border-radius: 12px;
 }
