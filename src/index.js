@@ -1,6 +1,8 @@
 let door = document.querySelector(".door")
 let doorText = document.querySelector(".door-text")
 let background = document.querySelector(".background")
+let introduction = document.querySelector(".introduction")
+let navbar = document.querySelector(".nav-bar")
 
 // ----DEV BUTTONS
 document.querySelector(".fade-in").addEventListener("click", () => {
@@ -43,10 +45,12 @@ door.addEventListener("mouseover", () => {
 
 door.addEventListener("click", () => {
     fadeBackgroundImage("out");
-    window.scrollTo({
-        top: 6800,
-        behavior: 'smooth'
+    introduction.scrollIntoView({
+        block: 'center',
+        inline: "center",
+        behavior: 'smooth',
     })
+
 })
 
 window.addEventListener("scroll", () => {
@@ -55,5 +59,6 @@ window.addEventListener("scroll", () => {
     if (scrollY > 2350 && scrollY < 2800) {
         fadeBackgroundImage("in")
         setBackgroundImage('./img/textures/background-morning.png');
+        navbar.classList.add("show")
        }
 })
