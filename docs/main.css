@@ -7,9 +7,9 @@ html {
     font: 20px/1 Lato, sans-serif;
     color: whitesmoke;
     --theme-color-orange: #ff914d;
+    --theme-color-orange_dark: #b36739;
     --theme-color-blue: #007bb6;
     --theme-color-light-blue: #38b6ff;
-    --theme-color-orange80: #ff914dbb;
     --theme-color-blue80: #007cb6b6;
     --theme-color-light-blue80: #38b6ffbb;
     --theme-color-white: rgba(255, 255, 255, 0.781);
@@ -22,22 +22,41 @@ body {
     background-size: auto;
     /* overflow: hidden; */
 }
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    /* color: var(--theme-color-orange); */
+    color: white;
+    margin-bottom: 3.2rem;
+    letter-spacing: .6rem;
+    text-shadow: 0 0 30px whitesmoke;
+}
 
 .background {
     content: "";
     background: black fixed;
     opacity: 1;
+    width: 100%;
+    height: fit-content;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
     z-index: -1;   
     transition-duration: 1s;
 }
 .background.show {
-    opacity: .2;
+    /* opacity: .2; */
+    background: rgba(0, 0, 0, 0.418);
     transition-duration: 1s;
+}
+
+.foreground {
+
+}
+.foreground.show{
+
 }
 
 .main-container {
@@ -89,6 +108,7 @@ body {
 
 
 .door-text-container {
+
     width: 100%;
     text-align: center;
     margin: 6rem auto;
@@ -123,8 +143,9 @@ body {
     100% {content: "WELCOME";}       
 }
 .door-text{
+    text-shadow: 0 0 2rem whitesmoke;
     color: white;
-    font-size: 1.2rem;
+    /* font-size: 14rem; */
     float: bottom;
     content: "";
 }
@@ -132,8 +153,10 @@ body {
 .door-text-animation::after{
     transition-duration: .5s;
     color: white;
+    text-shadow: 0 0 2rem whitesmoke, 0 0 2rem white;
     font-family: Lato, sans-serif;
-    letter-spacing: .3rem;
+    font-size: 2.1rem;
+    letter-spacing: .8rem;
     animation: doorText 2s linear 1s alternate;
     animation-fill-mode: forwards;
     content: "";
@@ -153,8 +176,11 @@ body {
 
 .nav-bar {
     opacity: 0;
+
+    display: flex;
+    justify-content: space-evenly;
     position: fixed;
-    top: -1rem;
+    top: -2rem;
     left: 0;
     right: 0;
     background-color: var(--theme-color-blue);
@@ -168,11 +194,39 @@ body {
     border-radius: 12px;
     z-index: 50;
 }
+.nav-bar > a {
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    padding: 1rem;
+
+    transition-duration: .1s;
+}
+
+.nav-bar > a:hover{
+    color: var(--theme-color-orange);
+    transition-duration: .2s;
+}
+
+.nav-bar > a::before{
+    content: "•";
+    position: relative;
+    left: -.6rem;
+    opacity: 0;
+    transition: .2s;
+}
+
+.nav-bar > a:hover::before {
+    left: -.2rem;
+    opacity: 100%;
+    transition: ease-out .4s;
+}
 
 .nav-bar.show {
     opacity: 100%;
     top: .5rem;
     transition: 2s ease-out;
+    transition-delay: 1.5s;
 }
 
 /* ========GENERIC SECTION========= */
@@ -180,26 +234,52 @@ body {
 
 .headshot {
     
-    
-    display: inline-block;
+    /* top: -25px; */
+    left: -220px;
     position: absolute;
     height: 150px;
-    width: 170px;
+    width: 150px;
     border-radius: 100%;
-    border: var(--theme-color-orange) solid 3px;
+    /* border: var(--theme-color-orange) solid 8px; */
+    background-color: var(--theme-color-orange);
     box-shadow: var(--box-shadow);
     z-index: 1;
 }
-.section-container {
-    overflow: hidden;
+
+.right-bubble-1 {
+    right: -220px;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    /* border: var(--theme-color-light-blue) solid 8px; */
+    background-color: var(--theme-color-light-blue);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+}
+.content-container {
+    display: flex;
     position: relative;
-    background-color: var(--theme-color-orange);
+    justify-content: center;
+    /* background-image: linear-gradient(white, var(--theme-color-orange),var(--theme-color-orange),var(--theme-color-orange), var(--theme-color-orange_dark)); */
+    background-color: white;
     box-shadow: var(--box-shadow);
     color: black;
-    width: 500px;
-    height: 500px;
-    margin: 1rem auto;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    padding: 1rem 1rem;
+    border: 8px solid;
+    border-color: var(--theme-color-blue) var(--theme-color-light-blue) var(--theme-color-light-blue) var(--theme-color-blue);
+    outline: 2px black solid;
+}
+.content-container-inner {
+    
+    width: 100%;
+    height: 100%;
     padding: 2rem;
-    border: 4px black solid;
-    /* border-radius: 12px; */
+    
+    /* margin: auto; */
+    background-color: rgb(255, 255, 255);
+    border: 2px rgb(3, 2, 0) solid;
 }
