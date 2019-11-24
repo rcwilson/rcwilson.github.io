@@ -20,7 +20,7 @@ body {
     background-image: url("./img/textures/background-night1.png"); 
     background-attachment: fixed;
     background-size: auto;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 h1 {
     text-align: center;
@@ -85,7 +85,7 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    margin: 200px auto 35px auto;
+    margin: 150px auto 35px auto;
 }
 
 .door {

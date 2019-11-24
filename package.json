@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot --port 3000 --host 192.168.1.38",
+    "start": "webpack-dev-server --mode development --open --hot --port 3000 --host 192.168.1.38",
     "build" : "webpack --mode production --content-base docs/ --output-path docs/"
   },
   "keywords": [],

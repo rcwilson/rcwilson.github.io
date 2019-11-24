@@ -26,7 +26,9 @@ let backgroundImage = document.body.style.backgroundImage
 // navbar.classList.add("show")
 // ================================
 
-
+window.onbeforeunload = () => {
+    window.scrollTo(0, 0)
+}
 
 
 
@@ -51,7 +53,7 @@ window.addEventListener("scroll", () => {
     
     if (scrollY > 2350 && scrollY < 2800) {
         fadeBackgroundImage("in")
-        setBackgroundImage('./img/textures/background-morning.png');
+        setBackgroundImage('./docs/img/textures/background-morning.png');
         navbar.classList.add("show")
        }
 })
