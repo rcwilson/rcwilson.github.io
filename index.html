@@ -9,31 +9,28 @@
     <title>Richard's Portfolio</title>
 </head>
 
-
-<!-- ==============NAV BAR=============-->
-
-
-
 <body>
 
     <!-- DEV BUTTONS -->
 
-    <!-- <div class="button-container">
+    <div class="button-container">
         <button class="fade-in">Fade In</button>
         <button class="fade-out">Fade Out</button>
         <button class="to-top">Scroll to Top</button>
-    </div> -->
+        <button class="foreground-toggle">Foreground Toggle</button>
+    </div>
 
     <!-- /DEV BUTTONS -->
 
 
     <!-- ===========SETUP AND NAV========== -->
-
+    <div class="foreground"></div>
     <div class="background">
     <nav class="nav-bar">
-            <a>About Me</a>
-            <a>Projects</a>
-            <a>Contact Me</a>
+            <a class="about">About Me</a>
+            <a class="projects">Projects</a>
+            <a class="skills">Skills</a>
+            <a class="contact">Contact Me</a>
     </nav>
 
 
@@ -58,23 +55,68 @@
     <h1>RICHARD C WILSON</h1>
         <section class="content-container introduction">
         <img src="./docs/img/Headshot/headshot.png" class="headshot">
-        <div class="right-bubble-1"></div>
-        <span>Introduction</span>
-        <p>Under Construction</p>
+        <div class="right-bubble-1"><span>INTRO</span></div>
+        
+        
+        <header class="content-container-header">
+            <span class="header-dot orange far">•</span>
+            <span class="header-dot orange mid">•</span>
+            <span class="header-dot orange">•</span>
+            
+            <h2>Welcome</h2>
+
+            <span class="header-dot blue">•</span>
+            <span class="header-dot blue mid">•</span>
+            <span class="header-dot blue far">•</span>
+        
+        </header>
+
+
+        <br>
+        <p>You made it!</p>
+        <p>Thanks for visiting my page, visitor.</p>
+        <br>
+        <p><a class="orange">About Me</a> is a great place to start.</p>
+        <p><a class="orange">Projects</a> showcase my recent works.</p>
+        <p>Perhaps look at my knowlege and <a class="blue">Skills</a>!</p>
+        <p>Then, if you want to chat, <a class="blue">Contact Me</a>.</p>
+        
 
 
         </section>
+
+        <div class="chunk"></div>
+        <div class="chunk"></div>
+        <div class="chunk"></div>
+    <!-- =========ABOUT ME SECTION=========== -->
+    <h1>ABOUT ME</h1>
     
+    <section class="content-container about">
+
+        <header class="content-container-header">
+            <span class="header-dot orange far">•</span>
+            <span class="header-dot orange mid">•</span>
+            <span class="header-dot orange">•</span>
+        
+            <h2>History</h2>
+
+            <span class="header-dot blue">•</span>
+            <span class="header-dot blue mid">•</span>
+            <span class="header-dot blue far">•</span>
+        </header>
+        
+    
+    </section>
 
         <div class="chunk"></div>
         <div class="chunk"></div>
         <div class="chunk"></div>
-
 
 
     </div>
     </div>
-    <script src="./docs/main.js"></script>
+    
+    <script src="main.js"></script>
 </body>
 
 </html>
