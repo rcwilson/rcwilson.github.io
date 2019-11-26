@@ -20,6 +20,7 @@ body {
     background-image: url("./img/textures/background-night1.png"); 
     background-attachment: fixed;
     background-size: auto;
+    
     /* overflow: hidden; */
 }
 h1 {
@@ -57,21 +58,18 @@ h2 {
 }
 
 @keyframes transition {
-    0%     {
-        display: block;
-        opacity: 0;}
+    0%     {pointer-events: fill; opacity: 0;}
     25%    {opacity: 1;}
-    /* 50%    {} */
     75%    {opacity: 1;}
-    100%   {
-        display: none;
-        opacity: 0;}
+    100%   {pointer-events: none; opacity: 0;}
 }
 
+.i {
+    font-style: italic;
+}
 .foreground {
-    display: none;
+    pointer-events: none;
     opacity: 0;
-    content: "";
     background: black;
     position: fixed;
     height: 100%;
@@ -82,9 +80,7 @@ h2 {
     right: 0;
     z-index: 100;
 }
-.foreground.show{
 
-}
 
 .main-container {
     margin: 0 auto;
@@ -343,9 +339,43 @@ section > p {
     line-height: 1.5rem;
 }
 a.blue {
-    color: var(--theme-color-blue);
+    color: var(--theme-color-blue);   
 }
 a.orange {
     color: var(--theme-color-orange);
+    margin-right: .4rem;
+}
+a.blue, a.orange {
+    cursor: pointer;
+    position: relative;
+    transition-duration: .1s;
+}
+
+a.orange::before{
+    content: "•";
+    position: relative;
+    left: -.6rem;
+    opacity: 0;
+    transition: .2s;
+}
+
+a.orange:hover::before {
+    left: -.2rem;
+    opacity: 100%;
+    transition: ease-out .4s;
+}
+a.blue::before{
+    content: "•";
+    position: relative;
+    left: -.6rem;
+    opacity: 0;
+    transition: .2s;
+    
+}
+
+a.blue:hover::before {
+    left: -.1rem;
+    opacity: 100%;
+    transition: ease-out .4s;
 }
 
