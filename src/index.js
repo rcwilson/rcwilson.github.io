@@ -27,6 +27,7 @@ let backgroundImage = document.body.style.backgroundImage
 // fadeBackgroundImage("in")
 // setBackgroundImage('./docs/img/textures/background-morning.png')
 // navbar.classList.add("show")
+// document.body.style.overflow = "scroll"
 // ========================================
 
 // ====SET SCROLL TO TOP ON REFRESH===
