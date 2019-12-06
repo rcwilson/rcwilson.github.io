@@ -6,7 +6,7 @@ let introduction = document.querySelector(".introduction")
 let navbar = document.querySelector(".nav-bar")
 let backgroundImage = document.body.style.backgroundImage
 
-// ===========DEV BUTTONS=====================
+// ========================DEV BUTTONS==========================
 
 // document.querySelector(".fade-in").addEventListener("click", () => {
 //     fadeBackgroundImage("in")
@@ -21,20 +21,17 @@ let backgroundImage = document.body.style.backgroundImage
 //         screenTransition(1.5)
 //     })
 
-// ========================================
 
-// ===============DEV OPTIONS==============
-// fadeBackgroundImage("in")
-// setBackgroundImage('./docs/img/textures/background-morning.png')
-// navbar.classList.add("show")
-// document.body.style.overflow = "scroll"
-// ========================================
+// ========================DEV OPTIONS==========================
+fadeBackgroundImage("in")
+setBackgroundImage('./docs/img/textures/background-morning.png')
+navbar.classList.add("show")
+document.body.style.overflow = "scroll"
+
 
 // ====SET SCROLL TO TOP ON REFRESH===
-window.onbeforeunload = () => {
-    window.scrollTo(0, 0)
-}
-// ===================================
+// window.onbeforeunload = () => { window.scrollTo(0, 0) }
+// ==============================================================
 
 
 
