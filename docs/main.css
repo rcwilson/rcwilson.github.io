@@ -21,6 +21,7 @@ body {
     background-attachment: fixed;
     background-size: auto;
     overflow: hidden;
+    width: 100vw;
 }
 h1 {
     text-align: center;
@@ -39,7 +40,7 @@ h2 {
     content: "";
     background: black fixed;
     opacity: 1;
-    width: 100vw;
+    width: 100;
     height: fit-content;
     top: 0;
     left: 0;
@@ -48,6 +49,7 @@ h2 {
     position: absolute;
     z-index: -1;   
     transition-duration: 1s;
+    transition-property: opacity;
 }
 .background.show {
     /* opacity: .2; */
@@ -81,8 +83,8 @@ h2 {
 
 
 .main-container {
-    margin: 0 auto;
-    width: 100vw;
+    /* margin: 0 auto; */
+    width: 100%;
 }
 
 /* ======DEV STUFF====== */
@@ -106,13 +108,13 @@ h2 {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    margin: 150px auto 35px auto;
+    margin: 5vh auto 35px auto;
 }
 
 .door {
     cursor: pointer;
-    height: 500px;
-    width: 250px;
+    height: 10rem;
+    width: 5rem;
     /* box-shadow: 0 0 2rem white; */
     animation-name: door-hover;
     animation-fill-mode: backwards;
@@ -416,6 +418,14 @@ a.blue:hover::before {
         opacity: 0%;
         top: .3rem;
     }
-
 }
 
+.content-container-slide{
+    position: relative;
+    display: none;
+    transition-duration: .5s;
+}
+.content-container-slide.active {
+    position: relative;
+    display: contents;
+}

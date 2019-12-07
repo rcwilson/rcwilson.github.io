@@ -6,6 +6,8 @@ let introduction = document.querySelector(".introduction")
 let navbar = document.querySelector(".nav-bar")
 let backgroundImage = document.body.style.backgroundImage
 
+    
+
 // ========================DEV BUTTONS==========================
 
 // document.querySelector(".fade-in").addEventListener("click", () => {
@@ -61,7 +63,7 @@ window.addEventListener("scroll", () => {
 })
 // ==================================
 
-// NAVIGATION 7857 About Me
+// =====================NAVIGATION=========================
 const aboutMe = document.querySelector(".about")
 aboutMe.addEventListener("click", () => {
 
@@ -71,6 +73,49 @@ aboutMe.addEventListener("click", () => {
         behavior: "smooth"
     })
 })
+
+// ==================ABOUT ME SECTION====================
+const aboutMeSlideArray = document.querySelectorAll(".content-container-slide");
+let currentSlideIndex = 0;
+let maxSlideIndex = aboutMeSlideArray.length - 1;
+
+document.querySelector(".left-bubble-1.about").onclick = onClickLeft;
+document.querySelector(".right-bubble-1.about").onclick = onClickRight;
+
+function handleSlideChange(action, callback) {
+    aboutMeSlideArray[currentSlideIndex].classList.remove("active")
+    switch (action) {
+        case "right": 
+                    if(currentSlideIndex < maxSlideIndex) { 
+                        currentSlideIndex ++ 
+                    }else {
+                        currentSlideIndex = 0;
+                    } 
+                    break;  
+        case "left":
+                    if(currentSlideIndex > 0) { 
+                        currentSlideIndex -- 
+                    }else {
+                        currentSlideIndex = maxSlideIndex;
+                    } 
+                    break;              
+        }
+        callback();
+}
+function onClickRight() {
+    handleSlideChange("right", () => {
+        aboutMeSlideArray[currentSlideIndex].classList.add("active")
+    })
+}
+function onClickLeft() {
+    handleSlideChange("left", () => {
+        aboutMeSlideArray[currentSlideIndex].classList.add("active")
+        aboutMeSlideArray[currentSlideIndex].classList.add("active")
+    })
+}
+
+
+
 
 
 
