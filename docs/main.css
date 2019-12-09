@@ -113,8 +113,8 @@ h2 {
 
 .door {
     cursor: pointer;
-    height: 10rem;
-    width: 5rem;
+    height: 26rem;
+    width: 13rem;
     /* box-shadow: 0 0 2rem white; */
     animation-name: door-hover;
     animation-fill-mode: backwards;
@@ -329,8 +329,8 @@ h2 {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    width: 100%;
     padding-bottom: .8rem;
-    
     border-bottom: 2px rgb(3, 2, 0) solid;
 }
 
@@ -399,33 +399,65 @@ a.blue:hover::before {
 }
 
 .about-title {
-    animation: clickright .9s ease-out;
+    position: relative;
+    animation: fade-content .5s ease-out reverse 1;
 }
 
 .about-content {
     position: relative;
-    animation: clickright .9s ease-out;
-    content: "dfdf";
+    animation: fade-content 1.3s ease-out reverse 1;
 }
 
-@keyframes clickright {
+@keyframes fade-content {
     from {
         opacity: 100%;
-        top: 0;
+        top: 0%;
 
     }
     to  {
         opacity: 0%;
-        top: .3rem;
+        top: -20%;
     }
 }
-
+@keyframes move-dots-left {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+@keyframes move-dots-right {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+}
 .content-container-slide{
     position: relative;
     display: none;
-    transition-duration: .5s;
 }
 .content-container-slide.active {
     position: relative;
     display: contents;
+}
+.header-dot.orange.far {
+    animation: move-dots-left 1.2s ease-in-out;
+}
+.header-dot.orange.mid {
+    animation: move-dots-left .7s ease-in-out;
+}
+.header-dot.orange {
+    animation: move-dots-left .4s ease-in-out;
+}
+.header-dot.blue.far {
+    animation: move-dots-right 1.2s ease-in-out;
+}
+.header-dot.blue.mid {
+    animation: move-dots-right .7s ease-in-out;
+}
+.header-dot.blue {
+    animation: move-dots-right .4s ease-in-out;
 }

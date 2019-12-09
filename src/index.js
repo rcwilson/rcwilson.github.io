@@ -24,15 +24,21 @@ let backgroundImage = document.body.style.backgroundImage
 //     })
 
 
-// ========================DEV OPTIONS==========================
-fadeBackgroundImage("in")
-setBackgroundImage('./docs/img/textures/background-morning.png')
-navbar.classList.add("show")
-document.body.style.overflow = "scroll"
+// ===================== DEVELOPMENT MODE ======================
+// SET DEV MODE
+const DEV_MODE = 
+    true
+// false
 
-
-// ====SET SCROLL TO TOP ON REFRESH===
-// window.onbeforeunload = () => { window.scrollTo(0, 0) }
+if (DEV_MODE === true) {
+    fadeBackgroundImage("in")
+    setBackgroundImage('./docs/img/textures/background-morning.png')
+    navbar.classList.add("show")
+    document.body.style.overflow = "scroll"
+} else {
+    // ====SET SCROLL TO TOP ON REFRESH===
+    window.onbeforeunload = () => { window.scrollTo(0, 0) }
+}
 // ==============================================================
 
 
@@ -109,7 +115,6 @@ function onClickRight() {
 }
 function onClickLeft() {
     handleSlideChange("left", () => {
-        aboutMeSlideArray[currentSlideIndex].classList.add("active")
         aboutMeSlideArray[currentSlideIndex].classList.add("active")
     })
 }
