@@ -6,7 +6,9 @@ let introduction = document.querySelector(".introduction")
 let navbar = document.querySelector(".nav-bar")
 let backgroundImage = document.body.style.backgroundImage
 
-// ===========DEV BUTTONS=====================
+    
+
+// ========================DEV BUTTONS==========================
 
 // document.querySelector(".fade-in").addEventListener("click", () => {
 //     fadeBackgroundImage("in")
@@ -21,20 +23,21 @@ let backgroundImage = document.body.style.backgroundImage
 //         screenTransition(1.5)
 //     })
 
-// ========================================
 
-// ===============DEV OPTIONS==============
-// fadeBackgroundImage("in")
-// setBackgroundImage('./docs/img/textures/background-morning.png')
-// navbar.classList.add("show")
-// document.body.style.overflow = "scroll"
-// ========================================
+// ===================== DEVELOPMENT MODE ======================
+// SET DEV MODE
+const DEV_MODE = false
 
-// ====SET SCROLL TO TOP ON REFRESH===
-window.onbeforeunload = () => {
-    window.scrollTo(0, 0)
+if (DEV_MODE === true) {
+    fadeBackgroundImage("in")
+    setBackgroundImage('./docs/img/textures/background-morning.png')
+    navbar.classList.add("show")
+    document.body.style.overflow = "scroll"
+} else {
+    // ====SET SCROLL TO TOP ON REFRESH===
+    window.onbeforeunload = () => { window.scrollTo(0, 0) }
 }
-// ===================================
+// ==============================================================
 
 
 
@@ -64,7 +67,7 @@ window.addEventListener("scroll", () => {
 })
 // ==================================
 
-// NAVIGATION 7857 About Me
+// =====================NAVIGATION=========================
 const aboutMe = document.querySelector(".about")
 aboutMe.addEventListener("click", () => {
 
@@ -74,6 +77,68 @@ aboutMe.addEventListener("click", () => {
         behavior: "smooth"
     })
 })
+
+// ==================ABOUT ME SECTION====================
+const aboutMeSlideArray = document.querySelectorAll(".content-container-slide");
+let currentSlideIndex = 1;
+let maxSlideIndex = aboutMeSlideArray.length - 1;
+let leftBubbleText = document.querySelector(".left-bubble-1.about").children.item(0)
+let rightBubbleText = document.querySelector(".right-bubble-1.about").children.item(0)
+console.log(aboutMeSlideArray[currentSlideIndex].id)
+
+document.querySelector(".left-bubble-1.about").onclick = onClickLeft;
+document.querySelector(".right-bubble-1.about").onclick = onClickRight;
+function handleBubbleText() {
+    if(currentSlideIndex === 0) {
+        leftBubbleText.innerHTML = aboutMeSlideArray[maxSlideIndex].id
+        rightBubbleText.innerHTML = aboutMeSlideArray[1].id
+
+    } else {
+        leftBubbleText.innerHTML = aboutMeSlideArray[currentSlideIndex - 1].id
+        if(currentSlideIndex === maxSlideIndex) {
+            rightBubbleText.innerHTML = aboutMeSlideArray[0].id
+        } else {
+            rightBubbleText.innerHTML = aboutMeSlideArray[currentSlideIndex + 1].id
+        }
+    }
+}
+function handleSlideChange(action, callback) {
+    aboutMeSlideArray[currentSlideIndex].classList.remove("active")
+    switch (action) {
+        case "right": 
+                    if(currentSlideIndex < maxSlideIndex) { 
+                        currentSlideIndex ++ ;
+                        
+                    }else {
+                        currentSlideIndex = 0;
+                    } 
+                    break;  
+        case "left":
+                    if(currentSlideIndex > 0) { 
+                        currentSlideIndex -- 
+                    }else {
+                        currentSlideIndex = maxSlideIndex;
+                    } 
+                    break;              
+        }
+        callback();
+}
+function onClickRight() {
+    handleSlideChange("right", () => {
+        aboutMeSlideArray[currentSlideIndex].classList.add("active")
+        handleBubbleText()
+    })
+
+}
+function onClickLeft() {
+    handleSlideChange("left", () => {
+        aboutMeSlideArray[currentSlideIndex].classList.add("active")
+        handleBubbleText()
+    })
+}
+
+
+
 
 
 
