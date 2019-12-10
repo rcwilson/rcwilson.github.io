@@ -26,9 +26,7 @@ let backgroundImage = document.body.style.backgroundImage
 
 // ===================== DEVELOPMENT MODE ======================
 // SET DEV MODE
-const DEV_MODE = 
-    true
-// false
+const DEV_MODE = false
 
 if (DEV_MODE === true) {
     fadeBackgroundImage("in")
@@ -82,18 +80,35 @@ aboutMe.addEventListener("click", () => {
 
 // ==================ABOUT ME SECTION====================
 const aboutMeSlideArray = document.querySelectorAll(".content-container-slide");
-let currentSlideIndex = 0;
+let currentSlideIndex = 1;
 let maxSlideIndex = aboutMeSlideArray.length - 1;
+let leftBubbleText = document.querySelector(".left-bubble-1.about").children.item(0)
+let rightBubbleText = document.querySelector(".right-bubble-1.about").children.item(0)
+console.log(aboutMeSlideArray[currentSlideIndex].id)
 
 document.querySelector(".left-bubble-1.about").onclick = onClickLeft;
 document.querySelector(".right-bubble-1.about").onclick = onClickRight;
+function handleBubbleText() {
+    if(currentSlideIndex === 0) {
+        leftBubbleText.innerHTML = aboutMeSlideArray[maxSlideIndex].id
+        rightBubbleText.innerHTML = aboutMeSlideArray[1].id
 
+    } else {
+        leftBubbleText.innerHTML = aboutMeSlideArray[currentSlideIndex - 1].id
+        if(currentSlideIndex === maxSlideIndex) {
+            rightBubbleText.innerHTML = aboutMeSlideArray[0].id
+        } else {
+            rightBubbleText.innerHTML = aboutMeSlideArray[currentSlideIndex + 1].id
+        }
+    }
+}
 function handleSlideChange(action, callback) {
     aboutMeSlideArray[currentSlideIndex].classList.remove("active")
     switch (action) {
         case "right": 
                     if(currentSlideIndex < maxSlideIndex) { 
-                        currentSlideIndex ++ 
+                        currentSlideIndex ++ ;
+                        
                     }else {
                         currentSlideIndex = 0;
                     } 
@@ -111,11 +126,14 @@ function handleSlideChange(action, callback) {
 function onClickRight() {
     handleSlideChange("right", () => {
         aboutMeSlideArray[currentSlideIndex].classList.add("active")
+        handleBubbleText()
     })
+
 }
 function onClickLeft() {
     handleSlideChange("left", () => {
         aboutMeSlideArray[currentSlideIndex].classList.add("active")
+        handleBubbleText()
     })
 }
 
