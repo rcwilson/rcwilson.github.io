@@ -26,11 +26,11 @@ let backgroundImage = document.body.style.backgroundImage
 
 // ===================== DEVELOPMENT MODE ======================
 // SET DEV MODE
-const DEV_MODE = false
+const DEV_MODE = true;
 
 if (DEV_MODE === true) {
     fadeBackgroundImage("in")
-    setBackgroundImage('./docs/img/textures/background-morning.png')
+    // setBackgroundImage('./docs/img/textures/background-morning.png')
     navbar.classList.add("show")
     document.body.style.overflow = "scroll"
 } else {
@@ -51,32 +51,68 @@ door.addEventListener("click", () => {
     fadeBackgroundImage("out");
     screenTransition(1)
     window.scroll({
-        top: 2717,
+        top: 2550,
         behavior: 'smooth',
     })
 
 })
 window.addEventListener("scroll", () => {
-    console.log(scrollY)
+    // console.log(scrollY)
 
     if (scrollY > 2350 && scrollY < 2800) {
         // fadeBackgroundImage("in")
         setBackgroundImage('./docs/img/textures/background-morning.png');
         navbar.classList.add("show")
     }
+
+    if (scrollY > 6500 && scrollY < 8100) {
+        
+        setBackgroundImage("./docs/img/textures/background-night2.png")
+    }
 })
 // ==================================
-
+// 7367
 // =====================NAVIGATION=========================
 const aboutMe = document.querySelector(".about")
+const contactMe = document.querySelector(".contact")
+const projects = document.querySelector(".projects")
+
 aboutMe.addEventListener("click", () => {
 
     screenTransition(.6)
     window.scrollTo({
-        top: 5215,
+        top: 4900,
         behavior: "smooth"
     })
 })
+contactMe.addEventListener("click", () => {
+    const dropDown = document.querySelector(".contact-dropdown")
+    function checkDropDownState() {
+       return dropDown.classList.contains("show")
+    } 
+
+    dropDown.classList.toggle("show")
+    document.addEventListener("scroll", () => {
+        dropDown.classList.remove("show")   
+    })
+    window.addEventListener("click", (event) => {
+        console.log(event.target.matches(".show"))
+        // if(!event.target.matches(".show") || !event.target.matches(".contact")) {
+        //     dropDown.classList.remove("show")
+        // }
+    })
+    
+})
+projects.addEventListener("click", () => {
+    screenTransition(.6)
+    
+    window.scrollTo({
+        top: 7512,
+        behavior: "smooth"
+    })
+})
+
+
 
 // ==================ABOUT ME SECTION====================
 const aboutMeSlideArray = document.querySelectorAll(".content-container-slide");
@@ -137,8 +173,29 @@ function onClickLeft() {
     })
 }
 
+// ==================PROJECTS SECTION=================
 
+const galleryImages = document.querySelectorAll(".project-gallery > img")
+const tooltip = document.querySelector(".tooltip")
 
+// window.addEventListener("mousemove", (e) => {
+//     tooltip.style.left = `${e.pageX + 40}px`;
+//     tooltip.style.top = `${e.pageY}px`;
+// })
+
+galleryImages.forEach(img => {
+    img.addEventListener("mouseenter", () => {
+        tooltip.style.display = "block";
+    })
+    img.addEventListener("mouseout", () => {
+        tooltip.style.display = "none";
+    })
+    img.addEventListener("mousemove", (e) => {
+        
+        tooltip.style.left = `${e.pageX + 40}px`;
+        tooltip.style.top = `${e.pageY}px`;
+    })
+})
 
 
 

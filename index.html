@@ -25,13 +25,28 @@
 
     <!-- ===========SETUP AND NAV========== -->
     <div class="foreground"></div>
+    <div class="tooltip">
+        Click to view Slideshow
+    </div>
     <div class="background">
     <nav class="nav-bar">
             <a class="about">About Me</a>
             <a class="projects">Projects</a>
             <a class="skills">Skills</a>
-            <a class="contact">Contact Me</a>
-    </nav>
+            <a value="contact" class="contact">Contact Me</a>
+        </nav>
+    <div class="contact-dropdown">
+        <span class="icon-container" value="LinkedIn">
+            <img class="icon show" value="contact" src="docs/img/icons/linkedin.png" id="LinkedIn">
+        </span>
+        <span class="icon-container" value="GitHub">
+            <img class="icon show" src="docs/img/icons/gitHub.png">
+        </span>
+        <span class="icon-container" value="Email">
+            <img class="icon show" src="docs/img/icons/email.png">
+        </span>
+            
+    </div>
 
 
 
@@ -198,17 +213,66 @@
         <div class="chunk"></div>
         <div class="chunk"></div>
         <div class="chunk"></div>
-        
+        <h1>Projects</h1>
+        <section class="content-container projects">
 
+                <div class="left-bubble-1 projects"><span>...</span></div>
+                <div class="right-bubble-1 projects"><span>...</span></div>
+        
+                <div class="content-container-slide-projects active" id="bring-it">        
+                    <header class="content-container-header projects">
+                        <span class="header-dot orange far">•</span>
+                        <span class="header-dot orange mid">•</span>
+                        <span class="header-dot orange">•</span>
+                    
+                        <h2><span class="projects-title">Bring It</span></h2>
+        
+                        <span class="header-dot blue">•</span>
+                        <span class="header-dot blue mid">•</span>
+                        <span class="header-dot blue far">•</span>
+                    </header>
+                    <br>
+                    
+                    <section class="project-content">
+                        The ultimate party planner! Bring It consists of Users, their Events, and
+                        the Items that each Event needs to be a party. Attendees can then add Items 
+                        they plan on bringing, or claim any the host needs. All in this single page application (SPA).
+                        <br><br>
+                        The data is stored in a cloud database called Monoose. Bring It works through
+                        a costume-built API that handles the logic and management of that data.
+                        <br><br>
+                        <section class="project-tools">
+                            <h3 class="project-tools-header">Tools Used</h3>
+                            <br>
+                            <span class="project-tools-content">• NodeJS • Webpack • MongoDb • HTML5 • CSS3 • Github • VSCode • Postman </span>
+                        </section>
+                        <br>
+                        
+                        <section class="project-gallery">
+                            <img src="docs/img/project/bring-it/bring-it-1.JPG">
+                            <img src="docs/img/project/bring-it/bring-it-2.JPG">
+                        </section>
+
+        
+                    </section>
+
+                    
+                </div>
+                
+            </section>
+        <div class="chunk"></div>
+        <div class="chunk"></div>
+        <div class="chunk"></div>
+        <div class="chunk"></div>
     </div>
     </div>
     
     <!-- npm start mode -->
-    <!-- <script src="main.js"></script> -->
+    <script src="main.js"></script>
 
    
     <!-- run build mode -->
-    <script src="docs/main.js"></script>
+    <!-- <script src="docs/main.js"></script> -->
     
 </body>
 

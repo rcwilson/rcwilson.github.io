@@ -14,6 +14,8 @@ html {
     --theme-color-light-blue80: #38b6ffbb;
     --theme-color-white: rgba(255, 255, 255, 0.781);
     --box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
+    font-size: 2.0vh;
+    line-height: 2.5vh;
 }
 
 body {
@@ -22,12 +24,10 @@ body {
     background-size: auto;
     overflow: hidden;
     width: 100vw;
-    font-size: 2.5vh;
-    line-height: 2.5vh;
 }
 h1 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: white;
     margin-bottom: 5.5rem;
     letter-spacing: .9rem;
@@ -210,22 +210,22 @@ h2 {
     background-color: var(--theme-color-blue);
     color: white;
     box-shadow: var(--box-shadow);
-    width: 500px;
+    width: 40%;
     height: 3rem;
     margin: 0 auto;
     padding: .5rem;
     border: 2px white solid;
     border-radius: 12px;
     z-index: 50;
-    font-size: 90%;
+    font-size: 1.2rem;
 }
 .nav-bar > a {
     cursor: pointer;
     position: relative;
     margin: auto;
     padding: .5rem;
-
     transition-duration: .1s;
+    z-index: 0;
 }
 
 .nav-bar > a:hover{
@@ -251,21 +251,73 @@ h2 {
     opacity: 100%;
     top: .5rem;
     transition: top 2s ease-out 1.5s, opacity 2s ease-in-out 1.2s;
-    /* transition-delay: 1.5s; */
 }
+.contact-dropdown {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-content: center;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: var(--theme-color-orange_dark);
+    color: white;
+    box-shadow: var(--box-shadow);
+    width: 25%;
+    height: 3.5rem;
+    margin: 0 auto;
+    padding: 2rem, .5rem, .5rem, .5rem ;
+    border: 2px white solid;
+    border-radius: 15px;
+    z-index: 3;
+    transition-duration: 1s;
+    opacity: 0;
+}
+.contact-dropdown.show {
+    opacity: 100%;
+    top: 8%;
+    transition: top .8s ease-out, opacity .8s ease .2s;
+}
+.icon {
+    position: relative;
+    margin: auto;
+    width: auto;
+    height: 85%;
+    
+}
+.icon-container {
+    
+    transition: .8s;
+}
+.icon-container:hover {
+    z-index: 51;
+    cursor: pointer;
+    transition: top .5s ease, transform .5s;
+    transform: perspective(1px) scale(1.5) translate(0, 1rem);
+    transition-duration: .7s;
+}
+
+.icon-container:hover::after{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.521) ;
+    transition: opacity .3s;
+    position: absolute;
+    display: block;
+    content: attr(value);
+}
+
 
 /* ========GENERIC SECTION========= */
 
 
 .headshot {
     
-    /* top: -25px; */
     left: -220px;
     position: absolute;
     height: 150px;
     width: 150px;
     border-radius: 100%;
-    /* border: var(--theme-color-orange) solid 8px; */
     background-color: var(--theme-color-orange);
     box-shadow: var(--box-shadow);
     z-index: 1;
@@ -446,6 +498,8 @@ a.blue:hover::before {
         right: 0;
     }
 }
+/* ===============ABOUT ME SECTION=========== */
+
 .content-container.about{
     /* height: 350px; */
     height: 45vh;
@@ -491,7 +545,7 @@ a.blue:hover::before {
 }
 .right-bubble-1.about:active, .left-bubble-1.about:active {
     box-shadow: none;
-    background-color: rgba(75, 75, 75, 0.534);
+    background-color: rgba(0, 0, 0, 0.473);
 }
 
 .about-content-list {
@@ -513,4 +567,62 @@ a.blue:hover::before {
 .about-content-list-right{
     grid-area: right;
     color: var(--theme-color-light-blue)
+}
+
+/* ==============PROJECTS============ */
+
+.content-container.projects {
+    border-color: rgb(59, 59, 59) gray gray rgb(59, 59, 59);
+    background-color: black;
+    color: white;
+}
+.content-container-header.projects {
+    background-color: black;
+    border-color: white;
+}
+.right-bubble-1.projects {
+    background-color: rgb(39, 39, 39);
+}
+.left-bubble-1.projects {
+    background-color: rgb(77, 77, 77);
+}
+.project-content {
+    color: white;
+}
+.project-tools-header {
+    color: white;
+}
+.project-tools-content {
+    color: var(--theme-color-light-blue);
+}
+.project-gallery {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    height: 6rem;
+}
+.project-gallery > img {
+    max-width: 30%;
+    max-height: auto;
+    transition-duration: .4s;
+}
+.project-gallery > img:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition-duration: .8s;
+}
+.project-gallery > img:hover::after {
+    color: white;
+    position: absolute;
+    content: "Click for gallery";
+}
+.tooltip {
+    display: block;
+    position: absolute;
+    padding: .5rem;
+    border: 2px white solid;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    background-color: rgba(18, 20, 156, 0.795);
 }
