@@ -27,7 +27,7 @@ let backgroundImage = document.body.style.backgroundImage
 
 // ===================== DEVELOPMENT MODE ======================
 // SET DEV MODE
-const DEV_MODE = true;
+const DEV_MODE = false;
 
 if (DEV_MODE === true) {
     fadeBackgroundImage("in")
