@@ -25,13 +25,41 @@
 
     <!-- ===========SETUP AND NAV========== -->
     <div class="foreground"></div>
+    <div class="tooltip">
+        Click for slideshow
+    </div>
+    <section class="slideshow-container">
+        <div class="slideshow-container-images bring-it">
+            <img src="docs/img/project/bring-it/bring-it-1.JPG" id="1">
+            <img src="docs/img/project/bring-it/bring-it-2.JPG" id="2">
+        </div>
+        <div class="slideshow-container-images blackjack">
+            <img src="docs/img/project/blackjack/blackjack-1.JPG" id="1">
+            <img src="docs/img/project/blackjack/blackjack-2.JPG" id="2">
+        </div>
+        <div class="slideshow-button left"> <span> < </span> </div>
+        <div class="slideshow-button right"> <span> > </span> </div> 
+        <div class="slideshow-button close"> <span> X </span> </div> 
+    </section>
     <div class="background">
     <nav class="nav-bar">
             <a class="about">About Me</a>
             <a class="projects">Projects</a>
             <a class="skills">Skills</a>
-            <a class="contact">Contact Me</a>
-    </nav>
+            <a value="contact" class="contact">Contact Me</a>
+        </nav>
+    <div class="contact-dropdown">
+        <span class="icon-container" value="LinkedIn">
+            <img class="icon show" value="contact" src="docs/img/icons/linkedin.png" id="LinkedIn">
+        </span>
+        <span class="icon-container" value="GitHub">
+            <img class="icon show" src="docs/img/icons/gitHub.png">
+        </span>
+        <span class="icon-container" value="Email">
+            <img class="icon show" src="docs/img/icons/email.png">
+        </span>
+            
+    </div>
 
 
 
@@ -198,17 +226,100 @@
         <div class="chunk"></div>
         <div class="chunk"></div>
         <div class="chunk"></div>
+
         
 
+        <h1>Projects</h1>
+        <section class="content-container projects">
+
+                <div class="left-bubble-1 projects"><span>...</span></div>
+                <div class="right-bubble-1 projects"><span>...</span></div>
+        
+                <div class="content-container-slide-projects active" id="bring-it">        
+                    <header class="content-container-header projects">
+                        <span class="header-dot orange far">•</span>
+                        <span class="header-dot orange mid">•</span>
+                        <span class="header-dot orange">•</span>                   
+                        <h2><span class="projects-title">Bring It</span></h2>       
+                        <span class="header-dot blue">•</span>
+                        <span class="header-dot blue mid">•</span>
+                        <span class="header-dot blue far">•</span>
+                    </header>
+                    <br>                   
+                    <section class="project-content">
+                        The ultimate party planner! Bring It consists of Users, their Events, and
+                        the Items that each Event needs to be a party. Attendees can then add Items 
+                        they plan on bringing, or claim any the host needs. All in a single page application.
+                        <br>
+                        The data is stored in a cloud database called Mongoose. Bring It works through
+                        a custom-built API that handles the logic and management of that data.
+                        <br><br>
+                        <section class="project-tools">
+                            <h3 class="project-tools-header">Tools Used</h3>
+                            <br>
+                            <span class="project-tools-content">• NodeJS • Express • Webpack • MongoDb • HTML5 • CSS3 • Github • VSCode • Postman </span>
+                        </section>
+                        <br>                        
+                        <section class="project-gallery bring-it">
+                            <img src="docs/img/project/bring-it/bring-it-1.JPG" id="0">
+                            <img src="docs/img/project/bring-it/bring-it-2.JPG" id="1">
+                        </section>
+                        <br>
+                        <section class="github-links">
+                            <a href="https://github.com/rcwilson/Bring-It-Front-End" target="blank">Github Repo</a>
+                        </section>        
+                    </section>    
+                </div>
+                <div class="content-container-slide-projects" id="blackjack">        
+                    <header class="content-container-header projects">
+                        <span class="header-dot orange far">•</span>
+                        <span class="header-dot orange mid">•</span>
+                        <span class="header-dot orange">•</span>                   
+                        <h2><span class="projects-title">Blackjack</span></h2>       
+                        <span class="header-dot blue">•</span>
+                        <span class="header-dot blue mid">•</span>
+                        <span class="header-dot blue far">•</span>
+                    </header>
+                    <br>                   
+                    <section class="project-content">
+                        A Blackjack game with style!
+                        <br>
+                        My first take on an actual front-end application using vanilla Javascript. This project
+                        gave incredible clarity on what Webpack does, various ways to use CSS, and the power of
+                        Javascript front-end manipulation
+                        <br><br>
+                        <section class="project-tools">
+                            <h3 class="project-tools-header">Tools Used</h3>
+                            <br>
+                            <span class="project-tools-content">• NodeJS • Webpack • HTML5 • CSS3 • Github • VSCode • Blackjack Logic Package </span>
+                        </section>
+                        <br>                        
+                        <section class="project-gallery blackjack">
+                            <img src="docs/img/project/blackjack/blackjack-1.JPG" id="0">
+                            <img src="docs/img/project/blackjack/blackjack-2.JPG" id="1">
+                        </section>
+                        <br>
+                        <section class="github-links">
+                            <a href="https://github.com/rcwilson/blackjack-rcw" target="blank">Github Repo</a><br>
+                            <a href="https://rcwilson.github.io/blackjack-rcw/" target="blank">Play Blackjack!</a>
+                        </section>        
+                    </section>    
+                </div>
+                
+            </section>
+        <div class="chunk"></div>
+        <div class="chunk"></div>
+        <div class="chunk"></div>
+        <div class="chunk"></div>
     </div>
     </div>
     
     <!-- npm start mode -->
-    <!-- <script src="main.js"></script> -->
+    <script src="main.js"></script>
 
    
     <!-- run build mode -->
-    <script src="docs/main.js"></script>
+    <!-- <script src="docs/main.js"></script> -->
     
 </body>
 

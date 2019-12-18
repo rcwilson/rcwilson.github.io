@@ -1,3 +1,4 @@
+const Slideshow = require("./components/Slideshow")
 let door = document.querySelector(".door")
 let doorText = document.querySelector(".door-text")
 let background = document.querySelector(".background")
@@ -26,11 +27,11 @@ let backgroundImage = document.body.style.backgroundImage
 
 // ===================== DEVELOPMENT MODE ======================
 // SET DEV MODE
-const DEV_MODE = false
+const DEV_MODE = true;
 
 if (DEV_MODE === true) {
     fadeBackgroundImage("in")
-    setBackgroundImage('./docs/img/textures/background-morning.png')
+    // setBackgroundImage('./docs/img/textures/background-morning.png')
     navbar.classList.add("show")
     document.body.style.overflow = "scroll"
 } else {
@@ -51,32 +52,68 @@ door.addEventListener("click", () => {
     fadeBackgroundImage("out");
     screenTransition(1)
     window.scroll({
-        top: 2717,
+        top: 2550,
         behavior: 'smooth',
     })
 
 })
 window.addEventListener("scroll", () => {
-    console.log(scrollY)
+    // console.log(scrollY)
 
     if (scrollY > 2350 && scrollY < 2800) {
         // fadeBackgroundImage("in")
         setBackgroundImage('./docs/img/textures/background-morning.png');
         navbar.classList.add("show")
     }
+
+    if (scrollY > 6500 && scrollY < 8100) {
+        
+        setBackgroundImage("./docs/img/textures/background-night2.png")
+    }
 })
 // ==================================
-
+// 7367
 // =====================NAVIGATION=========================
 const aboutMe = document.querySelector(".about")
+const contactMe = document.querySelector(".contact")
+const projects = document.querySelector(".projects")
+
 aboutMe.addEventListener("click", () => {
 
     screenTransition(.6)
     window.scrollTo({
-        top: 5215,
+        top: 4900,
         behavior: "smooth"
     })
 })
+contactMe.addEventListener("click", () => {
+    const dropDown = document.querySelector(".contact-dropdown")
+    function checkDropDownState() {
+       return dropDown.classList.contains("show")
+    } 
+
+    dropDown.classList.toggle("show")
+    document.addEventListener("scroll", () => {
+        dropDown.classList.remove("show")   
+    })
+    window.addEventListener("click", (event) => {
+        console.log(event.target.matches(".show"))
+        // if(!event.target.matches(".show") || !event.target.matches(".contact")) {
+        //     dropDown.classList.remove("show")
+        // }
+    })
+    
+})
+projects.addEventListener("click", () => {
+    screenTransition(.6)
+    
+    window.scrollTo({
+        top: 7512,
+        behavior: "smooth"
+    })
+})
+
+
 
 // ==================ABOUT ME SECTION====================
 const aboutMeSlideArray = document.querySelectorAll(".content-container-slide");
@@ -84,7 +121,6 @@ let currentSlideIndex = 1;
 let maxSlideIndex = aboutMeSlideArray.length - 1;
 let leftBubbleText = document.querySelector(".left-bubble-1.about").children.item(0)
 let rightBubbleText = document.querySelector(".right-bubble-1.about").children.item(0)
-console.log(aboutMeSlideArray[currentSlideIndex].id)
 
 document.querySelector(".left-bubble-1.about").onclick = onClickLeft;
 document.querySelector(".right-bubble-1.about").onclick = onClickRight;
@@ -137,11 +173,124 @@ function onClickLeft() {
     })
 }
 
+// ==================PROJECTS SECTION=================
+
+const galleryImages = document.querySelectorAll(".project-gallery > img")
+const tooltip = document.querySelector(".tooltip")
+let projectSlideArray = document.querySelectorAll(".content-container-slide-projects")
+let currentProjectSlideIndex = 0;
+const maxProjectSlideIndex = projectSlideArray.length - 1;
+document.querySelector(".left-bubble-1.projects").onclick = onClickLeftProject;
+document.querySelector(".right-bubble-1.projects").onclick = onClickRightProject;
+let leftProjectBubbleText = document.querySelector(".left-bubble-1.projects").children.item(0)
+let rightProjectBubbleText = document.querySelector(".right-bubble-1.projects").children.item(0)
 
 
+function onClickLeftProject() {
+    handleProjectSlideChange("left", () => {
+        projectSlideArray[currentProjectSlideIndex].classList.add("active")
+        handleProjectBubbleText()
+    })
+}
+function onClickRightProject() {
+    handleProjectSlideChange("right", () => {
+        projectSlideArray[currentProjectSlideIndex].classList.add("active")
+        handleProjectBubbleText()
+    })
+}
 
+function handleProjectSlideChange(action, callback) {
+    projectSlideArray[currentProjectSlideIndex].classList.remove("active")
+    switch (action) {
+        case "right": 
+                    if(currentProjectSlideIndex < maxProjectSlideIndex) { 
+                        currentProjectSlideIndex ++ ;
+                    }else {
+                        currentProjectSlideIndex = 0;
+                    } 
+                    break;  
+        case "left":
+                    if(currentProjectSlideIndex > 0) { 
+                        currentProjectSlideIndex -- 
+                    }else {
+                        currentProjectSlideIndex = maxProjectSlideIndex;
+                    } 
+                    break;              
+        }
+        callback();
+}
 
+function handleProjectBubbleText() {
+    if(currentProjectSlideIndex === 0) {
+        leftProjectBubbleText.innerHTML = projectSlideArray[maxProjectSlideIndex].id
+        rightProjectBubbleText.innerHTML = projectSlideArray[1].id
 
+    } else {
+        leftProjectBubbleText.innerHTML = projectSlideArray[currentProjectSlideIndex - 1].id
+        if(currentProjectSlideIndex === maxProjectSlideIndex) {
+            rightProjectBubbleText.innerHTML = projectSlideArray[0].id
+        } else {
+            rightProjectBubbleText.innerHTML = projectSlideArray[currentProjectSlideIndex + 1].id
+        }
+    }
+}
+
+// ====================THUMBNAIL TOOLTIP==================
+galleryImages.forEach(img => {
+    img.addEventListener("mouseenter", () => {
+        tooltip.style.display = "block";
+    })
+    img.addEventListener("mouseout", () => {
+        tooltip.style.display = "none";
+    })
+    img.addEventListener("mousemove", (e) => {
+        
+        tooltip.style.left = `${e.pageX + 40}px`;
+        tooltip.style.top = `${e.pageY}px`;
+    })
+})
+
+// --------------------SLIDESHOWS----------------------//
+const BringItSlideshow = new Slideshow(
+    document.querySelector(".slideshow-container"),
+    document.querySelector(".slideshow-container-images.bring-it"),
+    document.querySelectorAll(".slideshow-container-images.bring-it > img"))
+const BlackjackSlideshow = new Slideshow(
+    document.querySelector(".slideshow-container"),
+    document.querySelector(".slideshow-container-images.blackjack"),
+    document.querySelectorAll(".slideshow-container-images.blackjack > img"))
+
+let currentSlideshow = BringItSlideshow
+
+let slideshowButtonRight = document.querySelector(".slideshow-button.right")
+slideshowButtonRight.addEventListener("click", () => {
+    currentSlideshow['onClickRight']()   
+})
+let slideshowButtonLeft = document.querySelector(".slideshow-button.left")
+slideshowButtonLeft.addEventListener("click", () => {
+    currentSlideshow['onClickLeft']()    
+})
+let slideshowButtonClose = document.querySelector(".slideshow-button.close")
+slideshowButtonClose. addEventListener("click", (e) => {
+    currentSlideshow['onClickClose']()
+} )
+
+const bringItThumbnails = document.querySelectorAll(".project-gallery.bring-it > img")
+bringItThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", (e) => {       
+        currentSlideshow = BringItSlideshow;
+        BringItSlideshow.onOpenSlideshow(e.target.id)
+    })
+})
+const blackjackThumbnails = document.querySelectorAll(".project-gallery.blackjack > img")
+blackjackThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", (e) => {       
+        currentSlideshow = BlackjackSlideshow;
+        BlackjackSlideshow.onOpenSlideshow(e.target.id)
+    })
+})
+
+// ===========REUSED FUNCTIONS=========
 function fadeBackgroundImage(direction) {
     switch (direction) {
         case "in":
