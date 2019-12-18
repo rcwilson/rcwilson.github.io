@@ -264,7 +264,7 @@ h2 {
     background-color: var(--theme-color-orange_dark);
     color: white;
     box-shadow: var(--box-shadow);
-    width: 25%;
+    width: 35%;
     height: 3.5rem;
     margin: 0 auto;
     padding: 2rem, .5rem, .5rem, .5rem ;
@@ -282,8 +282,8 @@ h2 {
 .icon {
     position: relative;
     margin: auto;
-    width: auto;
-    height: 85%;
+    width: 50px;
+    height: 50px;
     
 }
 .icon-container {
@@ -459,13 +459,13 @@ a.blue:hover::before {
     transition: ease-out .4s;
 }
 
-.about-title {
+.about-title, .content-container-header.projects {
     position: relative;
     animation: fade-content .5s ease-out reverse 1;
 
 }
 
-.about-content {
+.about-content, .project-content {
     position: relative;
     font-size: 1.8vh ;
     animation: fade-content .9s ease-in reverse 1;
@@ -576,21 +576,41 @@ a.blue:hover::before {
     background-color: black;
     color: white;
 }
+.content-container-slide-projects {
+    display: none;
+}
+.content-container-slide-projects.active {
+    display: block;
+}
 .content-container-header.projects {
     background-color: black;
     border-color: white;
 }
 .right-bubble-1.projects {
     background-color: rgb(39, 39, 39);
+    transition-duration: .5s;
 }
 .left-bubble-1.projects {
     background-color: rgb(77, 77, 77);
+    transition-duration: .5s;
+}
+.right-bubble-1.projects:hover, .left-bubble-1.projects:hover {
+    cursor: pointer;
+    user-select: none;
+    opacity: .5;
+    transform: perspective(1px) scale(.8);
+    -webkit-font-smoothing: antialiased;
+    transition-duration: .5s;
+}
+.right-bubble-1.projects:active, .left-bubble-1.projects:active {
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.473);
 }
 .project-content {
     color: white;
 }
 .project-tools-header {
-    color: white;
+    color: var(--theme-color-orange);
 }
 .project-tools-content {
     color: var(--theme-color-light-blue);
@@ -617,7 +637,7 @@ a.blue:hover::before {
     content: "Click for gallery";
 }
 .tooltip {
-    display: block;
+    display: none;
     position: absolute;
     padding: .5rem;
     border: 2px white solid;
@@ -626,3 +646,101 @@ a.blue:hover::before {
     left: 0;
     background-color: rgba(18, 20, 156, 0.795);
 }
+.slideshow-wrapper {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.568);
+    z-index: 1000;
+}
+
+.slideshow-container {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.568);
+    z-index: 1000;
+}
+.slideshow-container-images 
+{   
+    display: none;
+    margin: auto;
+}
+
+.slideshow-container-images > img {
+    display: none;
+    margin: auto;
+    width: 50vw;
+    height: auto;
+}
+/* .slideshow-container-images > img:first-of-type {
+    display: block;
+} */
+.slideshow-button {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    top: 50%;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.219);
+    transition-duration: .4s;
+}
+.slideshow-button:hover {
+    cursor: pointer;
+    user-select: none;
+    transition-duration: .4s;
+}
+.slideshow-button.left {
+    left: 20%;
+}
+.slideshow-button.left:hover {
+    background-color: var(--theme-color-orange);
+}
+.slideshow-button.right {
+    right: 20%;
+}
+.slideshow-button.right:hover {
+    background-color: var(--theme-color-light-blue);
+}
+.slideshow-button.close {
+    left: 80%;
+    top: 15%;
+}
+.slideshow-button.close:hover {
+    background-color: white;
+    color: black;
+}
+.github-links > a {
+    font-style: inherit;
+    letter-spacing: .4rem;
+    transition: letter-spacing .4s ease-out;
+}
+.github-links > a:link, .github-links > a:visited, .github-links > a:active {
+    color: white;
+    text-decoration: none;
+}
+.github-links > a:hover {
+    letter-spacing: .1rem;
+    transition: letter-spacing .4s ease-out;
+    color: var(--theme-color-orange);
+}
+/* .github-links > a::after {
+    opacity: 0;
+    letter-spacing: .1rem;
+    position: relative;
+    content: "(new window)";
+    right: -20;
+}
+.github-links > a:hover::after {
+    transition-delay: .8s;
+    right: -10;
+    opacity: 1;
+} */

@@ -1,3 +1,4 @@
+const Slideshow = require("./components/Slideshow")
 let door = document.querySelector(".door")
 let doorText = document.querySelector(".door-text")
 let background = document.querySelector(".background")
@@ -120,7 +121,6 @@ let currentSlideIndex = 1;
 let maxSlideIndex = aboutMeSlideArray.length - 1;
 let leftBubbleText = document.querySelector(".left-bubble-1.about").children.item(0)
 let rightBubbleText = document.querySelector(".right-bubble-1.about").children.item(0)
-console.log(aboutMeSlideArray[currentSlideIndex].id)
 
 document.querySelector(".left-bubble-1.about").onclick = onClickLeft;
 document.querySelector(".right-bubble-1.about").onclick = onClickRight;
@@ -177,12 +177,65 @@ function onClickLeft() {
 
 const galleryImages = document.querySelectorAll(".project-gallery > img")
 const tooltip = document.querySelector(".tooltip")
+let projectSlideArray = document.querySelectorAll(".content-container-slide-projects")
+let currentProjectSlideIndex = 0;
+const maxProjectSlideIndex = projectSlideArray.length - 1;
+document.querySelector(".left-bubble-1.projects").onclick = onClickLeftProject;
+document.querySelector(".right-bubble-1.projects").onclick = onClickRightProject;
+let leftProjectBubbleText = document.querySelector(".left-bubble-1.projects").children.item(0)
+let rightProjectBubbleText = document.querySelector(".right-bubble-1.projects").children.item(0)
 
-// window.addEventListener("mousemove", (e) => {
-//     tooltip.style.left = `${e.pageX + 40}px`;
-//     tooltip.style.top = `${e.pageY}px`;
-// })
 
+function onClickLeftProject() {
+    handleProjectSlideChange("left", () => {
+        projectSlideArray[currentProjectSlideIndex].classList.add("active")
+        handleProjectBubbleText()
+    })
+}
+function onClickRightProject() {
+    handleProjectSlideChange("right", () => {
+        projectSlideArray[currentProjectSlideIndex].classList.add("active")
+        handleProjectBubbleText()
+    })
+}
+
+function handleProjectSlideChange(action, callback) {
+    projectSlideArray[currentProjectSlideIndex].classList.remove("active")
+    switch (action) {
+        case "right": 
+                    if(currentProjectSlideIndex < maxProjectSlideIndex) { 
+                        currentProjectSlideIndex ++ ;
+                    }else {
+                        currentProjectSlideIndex = 0;
+                    } 
+                    break;  
+        case "left":
+                    if(currentProjectSlideIndex > 0) { 
+                        currentProjectSlideIndex -- 
+                    }else {
+                        currentProjectSlideIndex = maxProjectSlideIndex;
+                    } 
+                    break;              
+        }
+        callback();
+}
+
+function handleProjectBubbleText() {
+    if(currentProjectSlideIndex === 0) {
+        leftProjectBubbleText.innerHTML = projectSlideArray[maxProjectSlideIndex].id
+        rightProjectBubbleText.innerHTML = projectSlideArray[1].id
+
+    } else {
+        leftProjectBubbleText.innerHTML = projectSlideArray[currentProjectSlideIndex - 1].id
+        if(currentProjectSlideIndex === maxProjectSlideIndex) {
+            rightProjectBubbleText.innerHTML = projectSlideArray[0].id
+        } else {
+            rightProjectBubbleText.innerHTML = projectSlideArray[currentProjectSlideIndex + 1].id
+        }
+    }
+}
+
+// ====================THUMBNAIL TOOLTIP==================
 galleryImages.forEach(img => {
     img.addEventListener("mouseenter", () => {
         tooltip.style.display = "block";
@@ -197,8 +250,47 @@ galleryImages.forEach(img => {
     })
 })
 
+// --------------------SLIDESHOWS----------------------//
+const BringItSlideshow = new Slideshow(
+    document.querySelector(".slideshow-container"),
+    document.querySelector(".slideshow-container-images.bring-it"),
+    document.querySelectorAll(".slideshow-container-images.bring-it > img"))
+const BlackjackSlideshow = new Slideshow(
+    document.querySelector(".slideshow-container"),
+    document.querySelector(".slideshow-container-images.blackjack"),
+    document.querySelectorAll(".slideshow-container-images.blackjack > img"))
 
+let currentSlideshow = BringItSlideshow
 
+let slideshowButtonRight = document.querySelector(".slideshow-button.right")
+slideshowButtonRight.addEventListener("click", () => {
+    currentSlideshow['onClickRight']()   
+})
+let slideshowButtonLeft = document.querySelector(".slideshow-button.left")
+slideshowButtonLeft.addEventListener("click", () => {
+    currentSlideshow['onClickLeft']()    
+})
+let slideshowButtonClose = document.querySelector(".slideshow-button.close")
+slideshowButtonClose. addEventListener("click", (e) => {
+    currentSlideshow['onClickClose']()
+} )
+
+const bringItThumbnails = document.querySelectorAll(".project-gallery.bring-it > img")
+bringItThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", (e) => {       
+        currentSlideshow = BringItSlideshow;
+        BringItSlideshow.onOpenSlideshow(e.target.id)
+    })
+})
+const blackjackThumbnails = document.querySelectorAll(".project-gallery.blackjack > img")
+blackjackThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", (e) => {       
+        currentSlideshow = BlackjackSlideshow;
+        BlackjackSlideshow.onOpenSlideshow(e.target.id)
+    })
+})
+
+// ===========REUSED FUNCTIONS=========
 function fadeBackgroundImage(direction) {
     switch (direction) {
         case "in":
