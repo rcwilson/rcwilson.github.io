@@ -14,8 +14,7 @@ html {
     --theme-color-light-blue80: #38b6ffbb;
     --theme-color-white: rgba(255, 255, 255, 0.781);
     --box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.548);
-    font-size: 2.0vh;
-    line-height: 2.5vh;
+    /* line-height: 2.5vh; */
 }
 
 body {
@@ -29,7 +28,7 @@ h1 {
     text-align: center;
     font-size: 1.8rem;
     color: white;
-    margin-bottom: 5.5rem;
+    margin-bottom: 2.5rem;
     letter-spacing: .9rem;
     text-shadow: 0 0 30px whitesmoke;
 }
@@ -86,7 +85,7 @@ h2 {
 
 .main-container {
     /* margin: 0 auto; */
-    width: 100%;
+    width: 100vw;
 }
 
 /* ======DEV STUFF====== */
@@ -110,7 +109,7 @@ h2 {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    margin: 5vh auto 35px auto;
+    margin: 50px auto 35px auto;
 }
 
 .door {
@@ -218,6 +217,7 @@ h2 {
     border-radius: 12px;
     z-index: 50;
     font-size: 1.2rem;
+    text-align: center;
 }
 .nav-bar > a {
     cursor: pointer;
@@ -247,6 +247,12 @@ h2 {
     transition: ease-out .4s;
 }
 
+.skills:active::after {
+    position: absolute;
+    content: "Coming Soon";
+    bottom: -10%;
+}
+
 .nav-bar.show {
     opacity: 100%;
     top: .5rem;
@@ -264,8 +270,8 @@ h2 {
     background-color: var(--theme-color-orange_dark);
     color: white;
     box-shadow: var(--box-shadow);
-    width: 35%;
-    height: 3.5rem;
+    width: 350px;
+    height: 5rem;
     margin: 0 auto;
     padding: 2rem, .5rem, .5rem, .5rem ;
     border: 2px white solid;
@@ -275,36 +281,42 @@ h2 {
     opacity: 0;
 }
 .contact-dropdown.show {
+    height: 7rem;
     opacity: 100%;
-    top: 8%;
+    top: 3.5rem;
     transition: top .8s ease-out, opacity .8s ease .2s;
 }
 .icon {
     position: relative;
     margin: auto;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     
 }
 .icon-container {
-    
+    display: flex;
     transition: .8s;
 }
 .icon-container:hover {
     z-index: 51;
     cursor: pointer;
     transition: top .5s ease, transform .5s;
-    transform: perspective(1px) scale(1.5) translate(0, 1rem);
+    transform: scale(1.5) translate(0, 1rem);
     transition-duration: .7s;
 }
 
 .icon-container:hover::after{
+    display: flex;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.521) ;
+    background-color: rgb(255, 255, 255) ;
+    color: black;
+    border-radius: 4px;
     transition: opacity .3s;
     position: absolute;
-    display: block;
+    bottom: 7%;
+    padding: .2rem;
     content: attr(value);
+    transform: perspective(1px);
 }
 
 
@@ -373,15 +385,15 @@ h2 {
     color: black;
     text-align: center;
     width: 400px;
-    height: auto;
+    height: 15rem;
     margin: auto;
-    padding: 1rem .8rem;
+    padding: .4rem .4rem;
     border: 18px solid;
     border-color: var(--theme-color-blue) var(--theme-color-light-blue) var(--theme-color-light-blue) var(--theme-color-blue);
     outline: 2px black solid;
 }
 .content-container.introduction {
-    font-size: 2vh;
+    font-size: 1rem;
 }
 .content-container-header{
     display: flex;
@@ -404,15 +416,18 @@ h2 {
 
 .header-dot.blue {
     color: var(--theme-color-light-blue);
+    opacity: 1;
 }
 .header-dot.orange {
     color: var(--theme-color-orange);
+    opacity: 1;
 }
 .header-dot.blue.far, .header-dot.orange.far {
-    opacity: 40%;
+    opacity: .4;
 }
 .header-dot.blue.mid, .header-dot.orange.mid {
-    opacity: 70%;
+    opacity: .7;
+
 }
 
 section > p {
@@ -461,16 +476,32 @@ a.blue:hover::before {
 
 .about-title, .content-container-header.projects {
     position: relative;
-    animation: fade-content .5s ease-out reverse 1;
+    animation: fade-header .5s ease-out reverse 1;
 
 }
 
 .about-content, .project-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: space-between;
     position: relative;
-    font-size: 1.8vh ;
+    font-size: .9rem ;
+    height: 80%;
     animation: fade-content .9s ease-in reverse 1;
 }
 
+@keyframes fade-header {
+    from {
+        opacity: 100%;
+        
+
+    }
+    to  {
+        opacity: 0%;
+        
+    }
+}
 @keyframes fade-content {
     from {
         opacity: 100%;
@@ -479,30 +510,34 @@ a.blue:hover::before {
     }
     to  {
         opacity: 0%;
-        top: -15%;
+        top: -10%;
     }
 }
 @keyframes move-dots-left {
     from {
-        left: -50%;
+        opacity: 0;
+        left: -40%;
     }
     to {
+        opacity: .4;
         left: 0;
     }
 }
 @keyframes move-dots-right {
     from {
-        right: -50%;
+        opacity: 0;
+        right: -40%;
     }
     to {
+        opacity: .4;
         right: 0;
     }
 }
 /* ===============ABOUT ME SECTION=========== */
 
 .content-container.about{
-    /* height: 350px; */
-    height: 45vh;
+    height: 21rem;
+    /* height: 45vh; */
 }
 .content-container-slide{
     position: relative;
@@ -573,17 +608,23 @@ a.blue:hover::before {
 
 .content-container.projects {
     border-color: rgb(59, 59, 59) gray gray rgb(59, 59, 59);
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.63);
     color: white;
+    height: 30rem;
+    width: 500px;
 }
 .content-container-slide-projects {
     display: none;
 }
 .content-container-slide-projects.active {
-    display: block;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    height: 100%;
 }
 .content-container-header.projects {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
+
     border-color: white;
 }
 .right-bubble-1.projects {
@@ -611,15 +652,14 @@ a.blue:hover::before {
 }
 .project-tools-header {
     color: var(--theme-color-orange);
+    margin-bottom: .3rem ;
 }
 .project-tools-content {
     color: var(--theme-color-light-blue);
 }
 .project-gallery {
     display: flex;
-    align-content: center;
     justify-content: space-evenly;
-    height: 6rem;
 }
 .project-gallery > img {
     max-width: 30%;
@@ -644,7 +684,7 @@ a.blue:hover::before {
     border-radius: 10px;
     top: 0;
     left: 0;
-    background-color: rgba(18, 20, 156, 0.795);
+    background-color: rgba(0, 0, 0, 0.664);
 }
 .slideshow-wrapper {
     display: flex;
@@ -699,48 +739,63 @@ a.blue:hover::before {
     transition-duration: .4s;
 }
 .slideshow-button.left {
-    left: 20%;
+    left: 40%;
+    top: 75%;
 }
 .slideshow-button.left:hover {
     background-color: var(--theme-color-orange);
 }
 .slideshow-button.right {
-    right: 20%;
+    right: 40%;
+    top: 75%;
 }
 .slideshow-button.right:hover {
     background-color: var(--theme-color-light-blue);
 }
 .slideshow-button.close {
-    left: 80%;
+    left: 70%;
     top: 15%;
 }
 .slideshow-button.close:hover {
     background-color: white;
     color: black;
 }
+.github-links {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 3.2rem;
+}
 .github-links > a {
+    position: relative;
     font-style: inherit;
-    letter-spacing: .4rem;
-    transition: letter-spacing .4s ease-out;
+    font-weight: bold;
+    letter-spacing: .2rem;
+    margin: auto 0;
 }
 .github-links > a:link, .github-links > a:visited, .github-links > a:active {
     color: white;
     text-decoration: none;
 }
 .github-links > a:hover {
-    letter-spacing: .1rem;
-    transition: letter-spacing .4s ease-out;
-    color: var(--theme-color-orange);
+    color: black;
+    background-color: white;
 }
-/* .github-links > a::after {
+.github-links > a::before, .github-links > a::after {
     opacity: 0;
-    letter-spacing: .1rem;
-    position: relative;
-    content: "(new window)";
-    right: -20;
+    color: rgb(248, 248, 248);
+    content: "•••";
+    letter-spacing: -10px;
+    transition-duration: .3s;
+    transform: skewx(10deg) translatex(150px);
+    transform-origin: bottom left;
 }
-.github-links > a:hover::after {
-    transition-delay: .8s;
-    right: -10;
+
+.github-links > a:hover::before, .github-links > a:hover::after {
     opacity: 1;
-} */
+    color: black;
+    letter-spacing: 1rem;
+    /* transform: scaleX(); */
+    transition: .5s ease-out;
+    
+}

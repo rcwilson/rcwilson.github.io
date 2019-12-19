@@ -7,6 +7,12 @@ let introduction = document.querySelector(".introduction")
 let navbar = document.querySelector(".nav-bar")
 let backgroundImage = document.body.style.backgroundImage
 
+let INTRO = 2690
+let ABOUT_ME = 5130
+let PROJECTS = 7710
+
+const DEV_MODE = false
+
     
 
 // ========================DEV BUTTONS==========================
@@ -23,17 +29,19 @@ let backgroundImage = document.body.style.backgroundImage
 // document.querySelector(".foreground-toggle").addEventListener("click", () => {
 //         screenTransition(1.5)
 //     })
+let scrollDisplay = document.querySelector(".scrolly-display")
+    window.addEventListener("scroll", (e)=>{
+        scrollDisplay.innerHTML = scrollY;})
 
 
 // ===================== DEVELOPMENT MODE ======================
-// SET DEV MODE
-const DEV_MODE = false;
-
 if (DEV_MODE === true) {
     fadeBackgroundImage("in")
     // setBackgroundImage('./docs/img/textures/background-morning.png')
     navbar.classList.add("show")
     document.body.style.overflow = "scroll"
+    doorText.setAttribute("class", "door-text-animation")
+    door.style.animation = "door-hover 8s infinite alternate none ease-in-out";
 } else {
     // ====SET SCROLL TO TOP ON REFRESH===
     window.onbeforeunload = () => { window.scrollTo(0, 0) }
@@ -48,45 +56,48 @@ door.addEventListener("mouseover", () => {
     doorText.setAttribute("class", "door-text-animation")
     door.style.animation = "door-hover 8s infinite alternate none ease-in-out";
 })
+// INTRO------
 door.addEventListener("click", () => {
     fadeBackgroundImage("out");
     screenTransition(1)
     window.scroll({
-        top: 2550,
+        top: INTRO,
         behavior: 'smooth',
     })
 
 })
 window.addEventListener("scroll", () => {
-    // console.log(scrollY)
+    console.log(scrollY)
 
-    if (scrollY > 2350 && scrollY < 2800) {
+    if (scrollY > (INTRO - 1000) && scrollY < (ABOUT_ME + 1000)) {
         // fadeBackgroundImage("in")
         setBackgroundImage('./docs/img/textures/background-morning.png');
         navbar.classList.add("show")
     }
 
-    if (scrollY > 6500 && scrollY < 8100) {
+    if (scrollY > (PROJECTS - 1000) && scrollY < (PROJECTS + 1000)) {
         
         setBackgroundImage("./docs/img/textures/background-night2.png")
     }
 })
-// ==================================
-// 7367
+
 // =====================NAVIGATION=========================
-const aboutMe = document.querySelector(".about")
-const contactMe = document.querySelector(".contact")
-const projects = document.querySelector(".projects")
+const AboutMe = document.querySelector(".about")
+const ContactMe = document.querySelector(".contact")
+const Projects = document.querySelector(".projects")
 
-aboutMe.addEventListener("click", () => {
+// ABOUT ME ===========
+AboutMe.addEventListener("click", () => {
 
-    screenTransition(.6)
+    screenTransition(.9)
     window.scrollTo({
-        top: 4900,
+        top: ABOUT_ME,
         behavior: "smooth"
     })
 })
-contactMe.addEventListener("click", () => {
+
+// CONTACT ME DROPDOWN==========
+ContactMe.addEventListener("click", () => {
     const dropDown = document.querySelector(".contact-dropdown")
     function checkDropDownState() {
        return dropDown.classList.contains("show")
@@ -104,11 +115,12 @@ contactMe.addEventListener("click", () => {
     })
     
 })
-projects.addEventListener("click", () => {
-    screenTransition(.6)
+// PROJECTS ==========
+Projects.addEventListener("click", () => {
+    screenTransition(1.2)
     
     window.scrollTo({
-        top: 7512,
+        top: PROJECTS,
         behavior: "smooth"
     })
 })
@@ -121,6 +133,7 @@ let currentSlideIndex = 1;
 let maxSlideIndex = aboutMeSlideArray.length - 1;
 let leftBubbleText = document.querySelector(".left-bubble-1.about").children.item(0)
 let rightBubbleText = document.querySelector(".right-bubble-1.about").children.item(0)
+leftBubbleText.innerHTML = aboutMeSlideArray[maxSlideIndex].id
 
 document.querySelector(".left-bubble-1.about").onclick = onClickLeft;
 document.querySelector(".right-bubble-1.about").onclick = onClickRight;
@@ -184,7 +197,8 @@ document.querySelector(".left-bubble-1.projects").onclick = onClickLeftProject;
 document.querySelector(".right-bubble-1.projects").onclick = onClickRightProject;
 let leftProjectBubbleText = document.querySelector(".left-bubble-1.projects").children.item(0)
 let rightProjectBubbleText = document.querySelector(".right-bubble-1.projects").children.item(0)
-
+leftProjectBubbleText.innerHTML = projectSlideArray[maxProjectSlideIndex].id
+rightProjectBubbleText.innerHTML = projectSlideArray[currentProjectSlideIndex + 1].id
 
 function onClickLeftProject() {
     handleProjectSlideChange("left", () => {
