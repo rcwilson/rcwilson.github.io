@@ -391,6 +391,13 @@ h2 {
     border: 18px solid;
     border-color: var(--theme-color-blue) var(--theme-color-light-blue) var(--theme-color-light-blue) var(--theme-color-blue);
     outline: 2px black solid;
+    outline-offset: 0rem;
+    z-index: 1;
+}
+@supports(-moz-animation: none) {
+    .content-container {
+        outline-style: none;
+    }
 }
 .content-container.introduction {
     font-size: 1rem;
@@ -412,6 +419,7 @@ h2 {
     font-size: 1.8rem;
     position: relative;
     margin: 0 .5rem;
+    z-index: 3;
 }
 
 .header-dot.blue {
@@ -546,6 +554,9 @@ a.blue:hover::before {
 .content-container-slide.active {
     position: relative;
     display: contents;
+}
+.header-dot{
+    position: relative;
 }
 .header-dot.orange.far {
     animation: move-dots-left 1.2s ease-in-out;

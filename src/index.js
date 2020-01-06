@@ -11,7 +11,7 @@ let INTRO = 2690
 let ABOUT_ME = 5130
 let PROJECTS = 7710
 
-const DEV_MODE = false
+const DEV_MODE = true
 
     
 
@@ -82,46 +82,38 @@ window.addEventListener("scroll", () => {
 })
 
 // =====================NAVIGATION=========================
-const AboutMe = document.querySelector(".about")
-const ContactMe = document.querySelector(".contact")
-const Projects = document.querySelector(".projects")
+const AboutMe = document.querySelectorAll(".about.link")
+const Projects = document.querySelectorAll(".projects.link")
+let ContactDropDown = document.querySelector(".contact-dropdown")
 
 // ABOUT ME ===========
-AboutMe.addEventListener("click", () => {
-
-    screenTransition(.9)
-    window.scrollTo({
-        top: ABOUT_ME,
-        behavior: "smooth"
+AboutMe.forEach(about => {
+    about.addEventListener("click", () => {
+        screenTransition(.9)
+        window.scrollTo({
+            top: ABOUT_ME,
+            behavior: "smooth"
+        })
     })
+}) 
+
+// CONTACT ME ==========
+document.addEventListener("click", event => {
+    if (ContactDropDown.classList.contains("show")) {    
+        ContactDropDown.classList.remove("show")    
+    } else if(event.target.closest(".contact.link")) {
+        ContactDropDown.classList.add("show")
+    }
 })
 
-// CONTACT ME DROPDOWN==========
-ContactMe.addEventListener("click", () => {
-    const dropDown = document.querySelector(".contact-dropdown")
-    function checkDropDownState() {
-       return dropDown.classList.contains("show")
-    } 
-
-    dropDown.classList.toggle("show")
-    document.addEventListener("scroll", () => {
-        dropDown.classList.remove("show")   
-    })
-    window.addEventListener("click", (event) => {
-        console.log(event.target.matches(".show"))
-        // if(!event.target.matches(".show") || !event.target.matches(".contact")) {
-        //     dropDown.classList.remove("show")
-        // }
-    })
-    
-})
 // PROJECTS ==========
-Projects.addEventListener("click", () => {
-    screenTransition(1.2)
-    
-    window.scrollTo({
-        top: PROJECTS,
-        behavior: "smooth"
+Projects.forEach(projects => {
+    projects.addEventListener("click", () => {
+        screenTransition(1.2)
+        window.scrollTo({
+            top: PROJECTS,
+            behavior: "smooth"
+        })
     })
 })
 
@@ -133,7 +125,7 @@ let currentSlideIndex = 1;
 let maxSlideIndex = aboutMeSlideArray.length - 1;
 let leftBubbleText = document.querySelector(".left-bubble-1.about").children.item(0)
 let rightBubbleText = document.querySelector(".right-bubble-1.about").children.item(0)
-leftBubbleText.innerHTML = aboutMeSlideArray[maxSlideIndex].id
+leftBubbleText.innerHTML = aboutMeSlideArray[currentSlideIndex - 1].id
 
 document.querySelector(".left-bubble-1.about").onclick = onClickLeft;
 document.querySelector(".right-bubble-1.about").onclick = onClickRight;
