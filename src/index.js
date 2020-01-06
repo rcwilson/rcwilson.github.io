@@ -296,6 +296,10 @@ blackjackThumbnails.forEach(thumbnail => {
     })
 })
 
+// ================SKILLS SECTION ================== //
+
+
+
 // ===========REUSED FUNCTIONS=========
 function fadeBackgroundImage(direction) {
     switch (direction) {

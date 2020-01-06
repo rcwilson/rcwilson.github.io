@@ -807,6 +807,50 @@ a.blue:hover::before {
     color: black;
     letter-spacing: 1rem;
     /* transform: scaleX(); */
-    transition: .5s ease-out;
-    
+    transition: .5s ease-out;  
 }
+
+/* =======================SKILLS====================== */
+
+.content-container.skills {
+    width: 700px;
+}
+.circle-select-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.circle-select {
+    position: relative;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 100%;
+    background-color: var(--theme-color-light-blue);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.212);
+    transition-duration: .3s;
+}
+.circle-select:hover {
+    cursor: pointer;
+    background-color: var(--theme-color-blue);
+    box-shadow: none;
+    transition-duration: .5s;
+}
+.circle-select::after {
+    right: -2rem;
+    transition-duration: .2s;
+}
+.circle-select:hover::after {
+    color: white;
+    position: relative;
+    content: attr(id);
+    background-color: var(--theme-color-orange);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.212);
+    top: 0;
+    right: -3.5rem;
+    padding: .3rem;
+    border-radius: 10px;
+    border: 2px white solid;
+    transition-duration: .4s;
+    transition-delay: .3s;
+
+}
+
