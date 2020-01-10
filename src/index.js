@@ -7,11 +7,12 @@ let introduction = document.querySelector(".introduction")
 let navbar = document.querySelector(".nav-bar")
 let backgroundImage = document.body.style.backgroundImage
 
-let INTRO = 2690
-let ABOUT_ME = 5130
-let PROJECTS = 7710
+let INTRO = 2590
+let ABOUT_ME = 5030
+let PROJECTS = 7540
+let SKILLS = 10199
 
-const DEV_MODE = true
+const DEV_MODE = false
 
     
 
@@ -29,9 +30,9 @@ const DEV_MODE = true
 // document.querySelector(".foreground-toggle").addEventListener("click", () => {
 //         screenTransition(1.5)
 //     })
-let scrollDisplay = document.querySelector(".scrolly-display")
-    window.addEventListener("scroll", (e)=>{
-        scrollDisplay.innerHTML = scrollY;})
+// let scrollDisplay = document.querySelector(".scrolly-display")
+//     window.addEventListener("scroll", (e)=>{
+//         scrollDisplay.innerHTML = scrollY;})
 
 
 // ===================== DEVELOPMENT MODE ======================
@@ -67,10 +68,9 @@ door.addEventListener("click", () => {
 
 })
 window.addEventListener("scroll", () => {
-    console.log(scrollY)
+    
 
-    if (scrollY > (INTRO - 1000) && scrollY < (ABOUT_ME + 1000)) {
-        // fadeBackgroundImage("in")
+    if (scrollY > (INTRO - 1000) && scrollY < (ABOUT_ME + 1100)) {
         setBackgroundImage('./docs/img/textures/background-morning.png');
         navbar.classList.add("show")
     }
@@ -79,21 +79,31 @@ window.addEventListener("scroll", () => {
         
         setBackgroundImage("./docs/img/textures/background-night2.png")
     }
+
+    if (scrollY > (SKILLS - 1000) && scrollY < (SKILLS + 1200)) {
+
+        setBackgroundImage("./docs/img/textures/background-sunset.png")
+    }
 })
 
 // =====================NAVIGATION=========================
 const AboutMe = document.querySelectorAll(".about.link")
 const Projects = document.querySelectorAll(".projects.link")
 let ContactDropDown = document.querySelector(".contact-dropdown")
+const Skills = document.querySelectorAll(".skills")
+let CurrentNavSelection  = ""
 
 // ABOUT ME ===========
 AboutMe.forEach(about => {
     about.addEventListener("click", () => {
-        screenTransition(.9)
-        window.scrollTo({
-            top: ABOUT_ME,
-            behavior: "smooth"
-        })
+        if (CurrentNavSelection != AboutMe) {
+            screenTransition(.9)
+            window.scrollTo({
+                top: ABOUT_ME,
+                behavior: "smooth"
+            })
+            CurrentNavSelection = AboutMe
+        }
     })
 }) 
 
@@ -109,11 +119,28 @@ document.addEventListener("click", event => {
 // PROJECTS ==========
 Projects.forEach(projects => {
     projects.addEventListener("click", () => {
-        screenTransition(1.2)
-        window.scrollTo({
-            top: PROJECTS,
-            behavior: "smooth"
-        })
+        if (CurrentNavSelection != Projects) {
+            screenTransition(1.3)
+            window.scrollTo({
+                top: PROJECTS,
+                behavior: "smooth"
+            })
+            CurrentNavSelection = Projects
+        }
+    })
+})
+
+// SKILLS =============
+Skills.forEach(skill => {
+    skill.addEventListener("click", () => {
+        if (CurrentNavSelection != Skills) {
+            screenTransition(1.2)
+            window.scrollTo({
+                top: SKILLS,
+                behavior: "smooth"
+            })
+            CurrentNavSelection = Skills
+        }
     })
 })
 
@@ -297,8 +324,39 @@ blackjackThumbnails.forEach(thumbnail => {
 })
 
 // ================SKILLS SECTION ================== //
+const circleTechnical = document.querySelector(".circle-select.technical")
+const circleLanguages = document.querySelector(".circle-select.languages")
+const circleCommunication = document.querySelector(".circle-select.communication")
+let currentCircleSelected = circleTechnical
+const skillsTechnical = document.querySelector(".skills-container.technical")
+const skillsLanguages = document.querySelector(".skills-container.languages")
+const skillsCommunication = document.querySelector(".skills-container.communication")
+let currentSkillsShown = skillsTechnical
 
+circleTechnical.addEventListener("click", () => {
+    if (!circleTechnical.classList.contains("selected")) {
+        handleSkillsChange(circleTechnical, skillsTechnical)
+    }
+})
+circleLanguages.addEventListener("click", () => {
+    if (!circleLanguages.classList.contains("selected")) {
+       handleSkillsChange(circleLanguages, skillsLanguages) 
+    }
+})
+circleCommunication.addEventListener("click", () => {
+    if (!circleCommunication.classList.contains("selected")) {
+        handleSkillsChange(circleCommunication, skillsCommunication)
+    }
+})
 
+function handleSkillsChange(newCircle, newSkillsContent) {
+    currentCircleSelected.classList.remove("selected")
+    currentCircleSelected = newCircle
+    currentCircleSelected.classList.add("selected")
+    currentSkillsShown.classList.remove("show")
+    currentSkillsShown = newSkillsContent
+    currentSkillsShown.classList.add("show")
+}
 
 // ===========REUSED FUNCTIONS=========
 function fadeBackgroundImage(direction) {

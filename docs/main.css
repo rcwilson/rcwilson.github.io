@@ -4,7 +4,7 @@
     margin: 0;
   }
 html {
-    font: 20px/1 Lato, sans-serif;
+    font: 18px/1 Lato, sans-serif;
     color: whitesmoke;
     --theme-color-orange: #ff914d;
     --theme-color-orange_dark: #b36739;
@@ -26,7 +26,7 @@ body {
 }
 h1 {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: white;
     margin-bottom: 2.5rem;
     letter-spacing: .9rem;
@@ -245,12 +245,6 @@ h2 {
     left: -.2rem;
     opacity: 100%;
     transition: ease-out .4s;
-}
-
-.skills:active::after {
-    position: absolute;
-    content: "Coming Soon";
-    bottom: -10%;
 }
 
 .nav-bar.show {
@@ -813,13 +807,22 @@ a.blue:hover::before {
 /* =======================SKILLS====================== */
 
 .content-container.skills {
+    justify-content: start;
+    border: 18px solid;
+    border-color: var(--theme-color-orange_dark) var(--theme-color-orange) var(--theme-color-orange) var(--theme-color-orange_dark);
     width: 700px;
+    height: 500px;
 }
 .circle-select-container {
     display: flex;
     justify-content: space-evenly;
+    margin: 1rem 0 .5rem 0;
+
 }
 .circle-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     height: 3.5rem;
     width: 3.5rem;
@@ -828,29 +831,101 @@ a.blue:hover::before {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.212);
     transition-duration: .3s;
 }
-.circle-select:hover {
+.circle-select:hover, .circle-select.selected {
     cursor: pointer;
-    background-color: var(--theme-color-blue);
+    
+    /* box-shadow: none; */
+    transition-duration: .5s;
+}
+.circle-select.selected {
     box-shadow: none;
+    background-color: var(--theme-color-blue);
     transition-duration: .5s;
 }
 .circle-select::after {
-    right: -2rem;
+    user-select: none;
+    -moz-user-select: none;
+    position: relative;
+    color: gray;
+    content: attr(id);
+    bottom: -2rem;
+    opacity: 0;
     transition-duration: .2s;
 }
-.circle-select:hover::after {
-    color: white;
+.circle-select:hover::after,.circle-select.selected::after {
+    color: black;
+    font-weight: bold;
+    opacity: 1;
     position: relative;
     content: attr(id);
-    background-color: var(--theme-color-orange);
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.212);
-    top: 0;
-    right: -3.5rem;
+    background-color: var(--theme-color-light-blue80);
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.103);
+    bottom: -3rem;
     padding: .3rem;
     border-radius: 10px;
-    border: 2px white solid;
-    transition-duration: .4s;
-    transition-delay: .3s;
-
+    /* border: 2px white solid; */
+    transition-duration: .3s;
+}
+.circle-select.selected::after {
+    box-shadow: none;
+    color: black;
+    background-color: var(--theme-color-blue);
 }
 
+.circle-icon, .circle-select > span {
+    position: absolute;
+    height: 75%;
+    width: 75%;
+}
+
+.skills-container {
+    display: none;
+    padding: 1.5rem 1rem;
+    opacity: .1;
+    transition-duration: .2s;
+}
+
+.skills-container.show {
+    display: flex;
+    flex-flow: column nowrap;
+    opacity: 1;
+    transition-duration: .4s;
+}
+.skills-header {
+    width: 100%;
+    margin: 1rem 0 .5rem 0;
+    display: flex;
+    flex-flow: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.skills-header-border {
+    position: relative;
+    top: -.5rem;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+.skills-content {
+    padding-bottom: .8rem;
+}
+.skills-content > span {
+    color: var(--theme-color-orange);
+}
+
+.skills-content > p {
+    color: var(--theme-color-blue);
+}
+.skills-content > div{
+    color: white;
+    padding: .2rem;
+    background-color: var(--theme-color-light-blue);
+    border-radius: 5px;
+    margin: 1rem;
+}
+.skills-content > div:nth-child(even) {
+    background-color: var(--theme-color-blue);
+}
+.skills-content > .bard-header {
+    background-color: var(--theme-color-blue);
+}

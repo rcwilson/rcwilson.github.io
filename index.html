@@ -11,20 +11,6 @@
 
 <body>
 
-    <!-- DEV BUTTONS -->
-
-    <!-- <div class="button-container">
-        <button class="fade-in">Fade In</button>
-        <button class="fade-out">Fade Out</button>
-        <button class="to-top">Scroll to Top</button>
-        <button class="foreground-toggle">Foreground Toggle</button>
-        <div class="scrolly-display">d</div>
-    </div> -->
-
-    <!-- /DEV BUTTONS -->
-
-
-    <!-- ===========SETUP AND NAV========== -->
     <div class="foreground"></div>
     <div class="tooltip">
         Click for slideshow
@@ -141,12 +127,12 @@
             <section class="about-content">
                <p>I moved from a small town in Ohio to Columbus and have called
                 it home for 10 years.</p> 
-                <p>Having years of service-industry experience, it was natural to find my calling
-                as a bartender for the majority of my life in the city. It's an exciting life
+                <p>Having over a decade of service-industry experience, it was natural to find my calling
+                as a bartender for the majority of my life in the city. It is an exciting life
                 of crafting and making connections with people.</p>
                 <p>In Fall '19, I decided to enroll in the coding bootcamp We Can Code It to pursue
                 a career role in technology. Taking a leap to the professional and technical world
-                is one of my favorite decisions I've ever made.</p>
+                is one of my most favorite and important pursuits I've ever made.</p>
 
             </section>
 
@@ -207,7 +193,7 @@
                     <ul class="about-content-list-right">
                         <li>Mixology</li>
                         <li>Learning</li>
-                        <li>Mixology</li>
+                        <li>Rhythm</li>
                         <li>Designing</li>
                         <li>Socializing</li>
                         <li>Conventions</li>
@@ -309,9 +295,69 @@
         <section class="content-container skills">
         
             <section class="circle-select-container">
-                <div class="circle-select technical" id="Technical"></div>
-                <div class="circle-select languages" id="Languages"></div>
-                <div class="circle-select technical" id="Communication"></div>
+                <div class="circle-select technical selected" id="Technical">
+                    <img class="circle-icon" src="docs/img/icons/gear-icon.png"/>
+                </div>
+                <div class="circle-select languages" id="Languages">
+                    <img class="circle-icon" src="docs/img/icons/coding-icon.png"/>
+                </div>
+                <div class="circle-select communication" id="Communication">
+                    <img class="circle-icon" src="docs/img/icons/communication-icon.png">
+                </div>
+            </section>
+
+            <section class="skills-container technical show">
+                <header class="skills-header">
+                    <div class="skills-header-border"></div>
+                    <h3> Experience </h3>
+                    <div class="skills-header-border"></div>
+                </header>
+                <section class="skills-content">
+                    Experienced in building and using <span>APIs</span>. Worked in developing
+                    <span>Single Page Applications</span>, <span>MVC</span>, and <span>Static</span> Web Applications.
+                    Used both <span>Relational</span> and <span>Non-Relational Databases</span> for data management. Applied
+                    <span>TDD</span> and <span>Agile (Scrum)</span> methods for work flow. Coded with <span> Object Oriented Programming</span>,
+                    <span>Ajax</span>, <span>JSON</span>, and <span>Unit Testing</span> .
+                </section>
+                
+                <header class="skills-header">
+                    <div class="skills-header-border"></div>
+                    <h3> Tools</h3>
+                    <div class="skills-header-border"></div>
+                </header>
+                <section class="skills-content">
+                    <p>NodeJs, Express, Webpack, Visual Studio, React, Mongoose, MySQL, Github, GitBash, Jest, Postman</p>
+                </section>
+            </section>
+
+            <section class="skills-container languages">
+                <header class="skills-header">
+                    <div class="skills-header-border"></div>
+                    <h3>Experienced</h3>
+                    <div class="skills-header-border"></div>
+                </header>
+                <section class="skills-content">
+                    <div>Javascript</div> 
+                    <div>HTML5</div>
+                    <div>CSS3</div>
+                    <div>SQL</div>
+                    <div>VBA</div>  
+                </section>
+                <div class="skills-header-border"></div>
+                
+            </section>
+
+            <section class="skills-container communication">
+                <section class="skills-content">
+                    <div class="bard-header">The Bard</div>
+                    I consider my communication skills to be the greatest asset I own. <br>
+                    I have years of costumer service experience and equal strengths in team communication.<br><br>
+                    I'm the <span class="bard">Bard</span> of a group. I enjoy boosting my team's composure, talents, and morale.
+                    This makes for a smoother battle experience when slaying beasts (or projects).<br><br>
+                    Asking questions, clarifying tasks, and communicating it to my team are all strengths of mine. All-in-all,
+                    I'm a team player and I'm incredibly excited to meet my next team.
+                    
+                </section>
             </section>
 
         </section>
@@ -324,12 +370,7 @@
     </div>
     </div>
     
-    <!-- npm start mode -->
-    <script src="main.js"></script>
-
-   
-    <!-- run build mode -->
-    <!-- <script src="docs/main.js"></script> -->
+    <script src="docs/main.js"></script>
     
 </body>
 
