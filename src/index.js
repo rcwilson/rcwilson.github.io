@@ -292,6 +292,14 @@ const BlackjackSlideshow = new Slideshow(
     document.querySelector(".slideshow-container"),
     document.querySelector(".slideshow-container-images.blackjack"),
     document.querySelectorAll(".slideshow-container-images.blackjack > img"))
+const InventorySlideshow = new Slideshow(
+    document.querySelector(".slideshow-container"),
+    document.querySelector(".slideshow-container-images.inventory"),
+    document.querySelectorAll(".slideshow-container-images.inventory > img"))
+const FriendAdventureSlideshow = new Slideshow(
+    document.querySelector(".slideshow-container"),
+    document.querySelector(".slideshow-container-images.friendventure"),
+    document.querySelectorAll(".slideshow-container-images.friendventure > img"))
 
 let currentSlideshow = BringItSlideshow
 
@@ -320,6 +328,20 @@ blackjackThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener("click", (e) => {       
         currentSlideshow = BlackjackSlideshow;
         BlackjackSlideshow.onOpenSlideshow(e.target.id)
+    })
+})
+const inventoryThumbnails = document.querySelectorAll(".project-gallery.inventory > img")
+inventoryThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", (e) => {       
+        currentSlideshow = InventorySlideshow;
+        InventorySlideshow.onOpenSlideshow(e.target.id)
+    })
+})
+const friendAdventureThumbnails = document.querySelectorAll(".project-gallery.friendventure > img")
+friendAdventureThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", (e) => {       
+        currentSlideshow = FriendAdventureSlideshow;
+        FriendAdventureSlideshow.onOpenSlideshow(e.target.id)
     })
 })
 

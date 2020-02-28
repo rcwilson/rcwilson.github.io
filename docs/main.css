@@ -3,6 +3,10 @@
     padding: 0;
     margin: 0;
   }
+@media only screen and (max-width: 600px) {
+      html {font: 12px/1 Lato, sans-serif;
+    }
+  }
 html {
     font: 18px/1 Lato, sans-serif;
     color: whitesmoke;
@@ -85,7 +89,7 @@ h2 {
 
 .main-container {
     /* margin: 0 auto; */
-    width: 100vw;
+    width: 100%;
 }
 
 /* ======DEV STUFF====== */
@@ -665,7 +669,13 @@ a.blue:hover::before {
 .project-gallery {
     display: flex;
     justify-content: space-evenly;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
+.project-gallery::-webkit-scrollbar{
+    width: 10px;
+}
+
 .project-gallery > img {
     max-width: 30%;
     max-height: auto;
